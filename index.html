@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,9 +11,13 @@
   <!-- Nav -->
   <header class="sticky top-0 z-50 backdrop-blur bg-neutral-950/70 border-b border-neutral-800">
     <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-      <a href="#" class="font-semibold text-white tracking-wide">Monegrid</a>
+      <a href="#" class="flex items-center gap-2">
+        <img src="assets/images/logo.svg" alt="Monegrid logo" class="h-8 w-8">
+        <span class="font-semibold text-white tracking-wide">Monegrid</span>
+      </a>
       <nav class="hidden sm:flex gap-6 text-sm">
         <a href="#about" class="hover:text-white">About</a>
+        <a href="#sigma" class="hover:text-white">SIGMA</a>
         <a href="#tech" class="hover:text-white">Technology</a>
         <a href="#team" class="hover:text-white">Team</a>
         <a href="#contact" class="hover:text-white">Contact</a>
@@ -34,7 +38,7 @@
       </p>
       <div class="mt-8 flex items-center justify-center gap-3">
         <a href="#contact" class="px-5 py-2.5 rounded-lg bg-white text-neutral-900 font-medium">Contact</a>
-        <a href="#tech" class="px-5 py-2.5 rounded-lg border border-neutral-700 hover:border-neutral-600">Learn more</a>
+        <a href="#sigma" class="px-5 py-2.5 rounded-lg border border-neutral-700 hover:border-neutral-600">Learn more</a>
       </div>
     </div>
   </section>
@@ -60,6 +64,48 @@
     </div>
   </section>
 
+  <!-- SIGMA -->
+  <section id="sigma" class="max-w-6xl mx-auto px-5 py-16">
+    <h2 class="text-2xl font-bold text-white">SIGMA — Smart Infrastructure Grid Monitoring AI</h2>
+    <p class="mt-4 text-neutral-300 max-w-3xl">
+      SIGMA is our AI engine for microgrids: a data and simulation–driven pipeline that detects faults early,
+      forecasts heavy loads, and recommends adaptive responses. It fuses RTDS/RSCAD digital-twin scenarios with
+      Pandapower studies and real telemetry to train PyTorch models that are explainable and operations-friendly.
+    </p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <h3 class="font-semibold text-white">Data & Digital Twin</h3>
+        <p class="mt-2 text-neutral-300">
+          RTDS/RSCAD cases + Pandapower sweeps → labeled events (faults, switching, load spikes) and healthy baselines.
+        </p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <h3 class="font-semibold text-white">ML Models</h3>
+        <p class="mt-2 text-neutral-300">
+          PyTorch classification & forecasting with feature audits, thresholds, and uncertainty checks.
+        </p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <h3 class="font-semibold text-white">Ops Outputs</h3>
+        <p class="mt-2 text-neutral-300">
+          FastAPI endpoints for alerts, recommended actions, and dashboard/SCADA integrations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Optional diagram image, add when ready -->
+    <!--
+    <div class="mt-8">
+      <img src="assets/images/sigma-diagram.png" alt="SIGMA data → model → outputs pipeline"
+           loading="lazy" class="w-full rounded-xl border border-neutral-800">
+      <p class="mt-2 text-sm text-neutral-400 text-center">
+        RTDS/RSCAD + Pandapower → PyTorch models → FastAPI ops outputs
+      </p>
+    </div>
+    -->
+  </section>
+
   <!-- Technology -->
   <section id="tech" class="max-w-6xl mx-auto px-5 py-16 border-y border-neutral-900">
     <h2 class="text-2xl font-bold text-white">Technology</h2>
@@ -81,24 +127,39 @@
 
   <!-- Team -->
   <section id="team" class="max-w-6xl mx-auto px-5 py-16">
-    <h2 class="text-2xl font-bold text-white">Team</h2>
-    <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="rounded-xl border border-neutral-800 p-5">
-        <p class="font-semibold text-white">Ryan</p>
-        <p class="text-sm text-neutral-400">Lead — AI Integration</p>
+    <h2 class="text-2xl font-bold text-white text-center">Team</h2>
+    <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+
+      <!-- Ryan Monemi -->
+      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition">
+        <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi" class="mx-auto h-24 w-24 rounded-full object-cover mb-4 border border-neutral-700">
+        <h3 class="font-semibold text-white text-lg">Ryan Monemi</h3>
+        <p class="text-sm text-blue-400">Founder & CEO</p>
+        <p class="mt-2 text-neutral-400 text-sm">
+          ECE at Cal Poly Pomona. Technical lead for SIGMA — AI-based microgrid monitoring, fault detection, and adaptive control.
+        </p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
-        <p class="font-semibold text-white">Tyler</p>
-        <p class="text-sm text-neutral-400">Digital Twin</p>
+
+      <!-- Dr. Saeed Monemi -->
+      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition">
+        <img src="assets/images/SaeedMonemi.png" alt="Dr. Saeed Monemi" class="mx-auto h-24 w-24 rounded-full object-cover mb-4 border border-neutral-700">
+        <h3 class="font-semibold text-white text-lg">Dr. Saeed Monemi</h3>
+        <p class="text-sm text-blue-400">Co-Founder & CTO</p>
+        <p class="mt-2 text-neutral-400 text-sm">
+          PhD in Electrical Engineering (Vanderbilt). Specializes in power systems and fault detection; architect of our protection and analytics framework.
+        </p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
-        <p class="font-semibold text-white">Mario</p>
-        <p class="text-sm text-neutral-400">Cloud & Data</p>
+
+      <!-- Adam Kim -->
+      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition">
+        <img src="assets/images/AdamKim.png" alt="Adam Kim" class="mx-auto h-24 w-24 rounded-full object-cover mb-4 border border-neutral-700">
+        <h3 class="font-semibold text-white text-lg">Adam Kim</h3>
+        <p class="text-sm text-blue-400">Marketing Director</p>
+        <p class="mt-2 text-neutral-400 text-sm">
+          Leads growth, brand positioning, and go-to-market. Fully committed to scaling Monegrid’s impact and partnerships.
+        </p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
-        <p class="font-semibold text-white">Landon</p>
-        <p class="text-sm text-neutral-400">RTDS & Hardware</p>
-      </div>
+
     </div>
   </section>
 
