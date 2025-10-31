@@ -3,31 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monegrid - Smart Grid AI</title>
-  <style>
-    :root { color-scheme: light dark; }
-    body {
-      margin: 0; min-height: 100vh; display: grid; place-items: center;
-      font-family: system-ui, Arial, sans-serif; background: #0d0f12; color: #e6edf3;
-    }
-    .card {
-      text-align: center; padding: 48px; border: 1px solid #1f2328;
-      border-radius: 16px; max-width: 720px; width: 92%;
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-    }
-    h1 { margin: 0 0 12px; font-size: 2rem; }
-    p { margin: 0 0 12px; opacity: .9; }
-    .tag { display:inline-block; margin-top:8px; padding:4px 10px; border:1px solid #32363e; border-radius:999px; font-size:.85rem; opacity:.85;}
-    a { color:#7aa2ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-  </style>
+  <title>Monegrid — Smart Grid AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Monegrid builds AI for resilient, adaptive microgrids. Fault prediction, load forecasting, and real-time optimization." />
 </head>
-<body>
-  <div class="card">
-    <h1>Monegrid</h1>
-    <p>Smart Infrastructure Grid Monitoring AI</p>
-    <p class="tag">Landing page placeholder</p>
-    <p style="margin-top:18px">Questions? <a href="mailto:founder@monegrid.com">founder@monegrid.com</a></p>
-  </div>
+<body class="bg-neutral-950 text-neutral-200">
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-neutral-950/70 border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+      <a href="#" class="font-semibold text-white tracking-wide">Monegrid</a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#tech" class="hover:text-white">Technology</a>
+        <a href="#team" class="hover:text-white">Team</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+      <a href="#contact" class="hidden sm:inline-flex px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-sm">Get in touch</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative">
+    <div class="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_0%,rgba(56,189,248,0.15),rgba(0,0,0,0))]"></div>
+    <div class="max-w-6xl mx-auto px-5 py-24 text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
+        Smart Grid AI for resilient, adaptive power
+      </h1>
+      <p class="mt-5 text-neutral-300 max-w-2xl mx-auto">
+        Predict faults, forecast heavy loads, and optimize microgrid response — built on SIGMA research at Cal Poly Pomona.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a href="#contact" class="px-5 py-2.5 rounded-lg bg-white text-neutral-900 font-medium">Contact</a>
+        <a href="#tech" class="px-5 py-2.5 rounded-lg border border-neutral-700 hover:border-neutral-600">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-5 py-16">
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-2xl font-bold text-white">About Monegrid</h2>
+        <p class="mt-4 text-neutral-300">
+          Monegrid (Monemi Grid Technologies) is building AI for grid operators and campus microgrids.
+          Our stack combines digital twins (RTDS/RSCAD), Pandapower simulations, and PyTorch models to deliver early fault detection and load-aware control.
+        </p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-6">
+        <ul class="space-y-3 text-neutral-300">
+          <li>• Fault classification and early warning</li>
+          <li>• AI-driven load forecasting for data-center spikes</li>
+          <li>• Adaptive response recommendations</li>
+          <li>• FastAPI backend feeding a lightweight ops dashboard</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology -->
+  <section id="tech" class="max-w-6xl mx-auto px-5 py-16 border-y border-neutral-900">
+    <h2 class="text-2xl font-bold text-white">Technology</h2>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <h3 class="font-semibold text-white">Digital Twin</h3>
+        <p class="mt-2 text-neutral-300">RTDS/RSCAD + Pandapower for scenario generation and validation.</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <h3 class="font-semibold text-white">ML Pipeline</h3>
+        <p class="mt-2 text-neutral-300">PyTorch models trained on synthetic + real telemetry for fault prediction.</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <h3 class="font-semibold text-white">API & Dashboard</h3>
+        <p class="mt-2 text-neutral-300">FastAPI endpoints powering ops UI and alerts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="max-w-6xl mx-auto px-5 py-16">
+    <h2 class="text-2xl font-bold text-white">Team</h2>
+    <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <p class="font-semibold text-white">Ryan</p>
+        <p class="text-sm text-neutral-400">Lead — AI Integration</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <p class="font-semibold text-white">Tyler</p>
+        <p class="text-sm text-neutral-400">Digital Twin</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <p class="font-semibold text-white">Mario</p>
+        <p class="text-sm text-neutral-400">Cloud & Data</p>
+      </div>
+      <div class="rounded-xl border border-neutral-800 p-5">
+        <p class="font-semibold text-white">Landon</p>
+        <p class="text-sm text-neutral-400">RTDS & Hardware</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-5 py-16">
+    <div class="rounded-2xl border border-neutral-800 p-8 text-center">
+      <h2 class="text-2xl font-bold text-white">Contact</h2>
+      <p class="mt-3 text-neutral-300">Interested in pilots, research collabs, or investment?</p>
+      <p class="mt-1"><a class="text-blue-400 underline underline-offset-4" href="mailto:founder@monegrid.com">founder@monegrid.com</a></p>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-sm text-neutral-500">
+    © <span id="y"></span> Monegrid. All rights reserved.
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
