@@ -4,21 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Monegrid — Smart Grid AI</title>
-  <meta name="description" content="Predict faults, forecast heavy loads, and optimize microgrid response with AI-powered analytics and operations-ready outputs." />
-  <meta name="theme-color" content="#0d0f12" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Open Graph / Link preview -->
+  <!-- Meta -->
+  <meta name="description" content="Predict faults, forecast heavy loads, and optimize microgrid response with AI-powered analytics and operations-ready outputs." />
+  <meta name="theme-color" content="#0d0f12" />
+
+  <!-- Open Graph + Twitter -->
   <meta property="og:title" content="Monegrid — Smart Grid AI" />
   <meta property="og:description" content="Predict faults, forecast heavy loads, and optimize microgrid response with AI-powered analytics." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/images/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Monegrid logo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Monegrid — Smart Grid AI" />
+  <meta name="twitter:description" content="Predict faults, forecast heavy loads, and optimize microgrid response with AI-powered analytics." />
+  <meta name="twitter:image" content="/assets/images/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/logo.png" />
+
+  <!-- Simple motion utilities -->
+  <style>
+    @keyframes fade-up {
+      0% { opacity: 0; transform: translateY(12px) scale(0.99); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .fade-up { animation: fade-up 700ms cubic-bezier(.22,.8,.23,1) both; }
+    .fade-up-del1 { animation-delay: .08s; }
+    .fade-up-del2 { animation-delay: .16s; }
+    .fade-up-del3 { animation-delay: .24s; }
+    .fade-up-del4 { animation-delay: .32s; }
+  </style>
 </head>
+
 <body class="bg-neutral-950 text-neutral-200 selection:bg-white/20 selection:text-white">
   <!-- Nav -->
   <header class="sticky top-0 z-50 backdrop-blur bg-neutral-950/70 border-b border-neutral-800">
     <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
-        <!-- Use PNG logo -->
         <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8">
         <span class="font-semibold text-white tracking-wide">Monegrid</span>
       </a>
@@ -33,34 +60,31 @@
     </div>
   </header>
 
- <!-- Hero -->
-<section class="relative text-center">
-  <div class="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_0%,rgba(56,189,248,0.12),rgba(0,0,0,0))]"></div>
-  <div class="max-w-5xl mx-auto px-5 py-24 relative z-10">
-    <img src="assets/images/logo.png" alt="Monegrid logo"
-         class="mx-auto mb-10 w-32 sm:w-40 md:w-48 lg:w-56 drop-shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
-      Predict faults, forecast heavy loads, and optimize microgrid response<br class="hidden sm:block">
-      <span class="text-blue-400">with state-of-the-art predictive technology</span>
-    </h1>
-
-    <p class="mt-5 text-neutral-300 max-w-2xl mx-auto text-lg">
-      AI-powered analytics for modern power systems — delivering fault prediction, load forecasting, and operational intelligence.
-    </p>
-
-    <div class="mt-8 flex items-center justify-center gap-3">
-      <a href="#contact" class="px-5 py-2.5 rounded-lg bg-white text-neutral-900 font-medium shadow-md">Contact</a>
-      <a href="#sigma" class="px-5 py-2.5 rounded-lg border border-neutral-700 hover:border-neutral-600">Learn more</a>
+  <!-- Hero -->
+  <section class="relative text-center">
+    <div class="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_0%,rgba(56,189,248,0.12),rgba(0,0,0,0))]"></div>
+    <div class="max-w-5xl mx-auto px-5 py-20 sm:py-24 relative z-10">
+      <img src="assets/images/logo.png" alt="Monegrid logo"
+           class="mx-auto mb-8 sm:mb-10 w-28 sm:w-36 md:w-44 lg:w-52 drop-shadow-[0_0_40px_rgba(255,255,255,0.08)] fade-up" />
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white fade-up fade-up-del1">
+        Predict faults, forecast heavy loads, and optimize microgrid response
+        <br class="hidden sm:block">
+        <span class="text-blue-400">with state-of-the-art predictive technology</span>
+      </h1>
+      <p class="mt-5 text-neutral-300 max-w-2xl mx-auto text-base sm:text-lg fade-up fade-up-del2">
+        AI-powered analytics for modern power systems — delivering fault prediction, load forecasting, and operational intelligence.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-3 fade-up fade-up-del3">
+        <a href="#contact" class="px-5 py-2.5 rounded-lg bg-white text-neutral-900 font-medium shadow-md">Contact</a>
+        <a href="#sigma" class="px-5 py-2.5 rounded-lg border border-neutral-700 hover:border-neutral-600">Learn more</a>
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- About -->
   <section id="about" class="max-w-6xl mx-auto px-5 py-16">
     <div class="grid md:grid-cols-2 gap-10 items-start">
-      <div>
+      <div class="fade-up">
         <h2 class="text-2xl font-bold text-white">About Monegrid</h2>
         <p class="mt-4 text-neutral-300">
           Monegrid (Monemi Grid Technologies) delivers AI for grid operators and campus microgrids. Our platform fuses
@@ -68,7 +92,7 @@
           operator-ready responses. The result: higher reliability, better asset utilization, and smoother operations.
         </p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-6">
+      <div class="rounded-xl border border-neutral-800 p-6 fade-up fade-up-del1">
         <ul class="space-y-3 text-neutral-300">
           <li>• Early fault detection and event classification</li>
           <li>• AI-driven load forecasting for heavy/AI/data-center profiles</li>
@@ -81,27 +105,27 @@
 
   <!-- SIGMA -->
   <section id="sigma" class="max-w-6xl mx-auto px-5 py-16">
-    <h2 class="text-2xl font-bold text-white">SIGMA — Smart Infrastructure Grid Monitoring AI</h2>
-    <p class="mt-4 text-neutral-300 max-w-3xl">
+    <h2 class="text-2xl font-bold text-white fade-up">SIGMA — Smart Infrastructure Grid Monitoring AI</h2>
+    <p class="mt-4 text-neutral-300 max-w-3xl fade-up fade-up-del1">
       SIGMA is our analytics engine: a data- and simulation-driven pipeline that detects faults early, forecasts heavy loads,
       and recommends adaptive responses. It blends RTDS/RSCAD digital-twin scenarios, Pandapower studies, and real telemetry
       to train robust PyTorch models — with outputs exposed via FastAPI for seamless operational use.
     </p>
 
     <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <div class="rounded-xl border border-neutral-800 p-5">
+      <div class="rounded-xl border border-neutral-800 p-5 fade-up">
         <h3 class="font-semibold text-white">Data & Digital Twin</h3>
         <p class="mt-2 text-neutral-300">
           Synthetic and real datasets from RTDS/RSCAD and Pandapower create labeled events and healthy baselines.
         </p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
+      <div class="rounded-xl border border-neutral-800 p-5 fade-up fade-up-del1">
         <h3 class="font-semibold text-white">ML Models</h3>
         <p class="mt-2 text-neutral-300">
           Classification & forecasting in PyTorch with feature audits, thresholds, and uncertainty checks.
         </p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
+      <div class="rounded-xl border border-neutral-800 p-5 fade-up fade-up-del2">
         <h3 class="font-semibold text-white">Ops Outputs</h3>
         <p class="mt-2 text-neutral-300">
           FastAPI endpoints for alerts, recommended actions, and dashboard/SCADA integrations.
@@ -109,8 +133,8 @@
       </div>
     </div>
 
-    <!-- Optional diagram image (add when ready)
-    <div class="mt-8">
+    <!-- Optional diagram when available
+    <div class="mt-8 fade-up">
       <img src="assets/images/sigma-diagram.png" alt="SIGMA pipeline: data → models → ops outputs"
            loading="lazy" class="w-full rounded-xl border border-neutral-800">
       <p class="mt-2 text-sm text-neutral-400 text-center">
@@ -122,17 +146,17 @@
 
   <!-- Technology -->
   <section id="tech" class="max-w-6xl mx-auto px-5 py-16 border-y border-neutral-900">
-    <h2 class="text-2xl font-bold text-white">Technology</h2>
+    <h2 class="text-2xl font-bold text-white fade-up">Technology</h2>
     <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <div class="rounded-xl border border-neutral-800 p-5">
+      <div class="rounded-xl border border-neutral-800 p-5 fade-up">
         <h3 class="font-semibold text-white">Digital Twin</h3>
         <p class="mt-2 text-neutral-300">RTDS/RSCAD and Pandapower for scenario generation and validation.</p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
+      <div class="rounded-xl border border-neutral-800 p-5 fade-up fade-up-del1">
         <h3 class="font-semibold text-white">ML Pipeline</h3>
         <p class="mt-2 text-neutral-300">Models trained on synthetic + real telemetry for detection and forecasting.</p>
       </div>
-      <div class="rounded-xl border border-neutral-800 p-5">
+      <div class="rounded-xl border border-neutral-800 p-5 fade-up fade-up-del2">
         <h3 class="font-semibold text-white">API & Dashboard</h3>
         <p class="mt-2 text-neutral-300">FastAPI endpoints powering dashboards and alerts.</p>
       </div>
@@ -141,11 +165,11 @@
 
   <!-- Team -->
   <section id="team" class="max-w-6xl mx-auto px-5 py-16">
-    <h2 class="text-2xl font-bold text-white text-center">Team</h2>
+    <h2 class="text-2xl font-bold text-white text-center fade-up">Team</h2>
     <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
 
       <!-- Ryan Monemi -->
-      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition">
+      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition fade-up">
         <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi" class="mx-auto h-24 w-24 rounded-full object-cover mb-4 border border-neutral-700">
         <h3 class="font-semibold text-white text-lg">Ryan Monemi</h3>
         <p class="text-sm text-blue-400">Founder & CEO</p>
@@ -155,7 +179,7 @@
       </div>
 
       <!-- Dr. Saeed Monemi -->
-      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition">
+      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition fade-up fade-up-del1">
         <img src="assets/images/SaeedMonemi.png" alt="Dr. Saeed Monemi" class="mx-auto h-24 w-24 rounded-full object-cover mb-4 border border-neutral-700">
         <h3 class="font-semibold text-white text-lg">Dr. Saeed Monemi</h3>
         <p class="text-sm text-blue-400">Co-Founder & CTO</p>
@@ -166,7 +190,7 @@
       </div>
 
       <!-- Adam Kim -->
-      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition">
+      <div class="rounded-xl border border-neutral-800 p-6 bg-neutral-900/30 hover:bg-neutral-900/50 transition fade-up fade-up-del2">
         <img src="assets/images/AdamKim.png" alt="Adam Kim" class="mx-auto h-24 w-24 rounded-full object-cover mb-4 border border-neutral-700">
         <h3 class="font-semibold text-white text-lg">Adam Kim</h3>
         <p class="text-sm text-blue-400">Marketing Director</p>
@@ -180,7 +204,7 @@
 
   <!-- Contact -->
   <section id="contact" class="max-w-6xl mx-auto px-5 py-16">
-    <div class="rounded-2xl border border-neutral-800 p-8 text-center">
+    <div class="rounded-2xl border border-neutral-800 p-8 text-center fade-up">
       <h2 class="text-2xl font-bold text-white">Contact</h2>
       <p class="mt-3 text-neutral-300">Interested in pilots, collaborations, or investment?</p>
       <p class="mt-1">
