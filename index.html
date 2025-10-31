@@ -4,15 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Monegrid — Smart Grid AI</title>
+  <meta name="description" content="Predict faults, forecast heavy loads, and optimize microgrid response with AI-powered analytics and operations-ready outputs." />
+  <meta name="theme-color" content="#0d0f12" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Monegrid builds AI for resilient, adaptive microgrids. Fault prediction, load forecasting, and real-time optimization." />
+
+  <!-- Open Graph / Link preview -->
+  <meta property="og:title" content="Monegrid — Smart Grid AI" />
+  <meta property="og:description" content="Predict faults, forecast heavy loads, and optimize microgrid response with AI-powered analytics." />
+  <meta property="og:type" content="website" />
 </head>
-<body class="bg-neutral-950 text-neutral-200">
+<body class="bg-neutral-950 text-neutral-200 selection:bg-white/20 selection:text-white">
   <!-- Nav -->
   <header class="sticky top-0 z-50 backdrop-blur bg-neutral-950/70 border-b border-neutral-800">
     <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
-        <img src="assets/images/logo.svg" alt="Monegrid logo" class="h-8 w-8">
+        <!-- Use PNG logo -->
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8">
         <span class="font-semibold text-white tracking-wide">Monegrid</span>
       </a>
       <nav class="hidden sm:flex gap-6 text-sm">
@@ -28,13 +35,13 @@
 
   <!-- Hero -->
   <section class="relative">
-    <div class="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_0%,rgba(56,189,248,0.15),rgba(0,0,0,0))]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_0%,rgba(56,189,248,0.12),rgba(0,0,0,0))]"></div>
     <div class="max-w-6xl mx-auto px-5 py-24 text-center">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
-        Smart Grid AI for resilient, adaptive power
+        Predict faults, forecast heavy loads, and optimize microgrid response with state-of-the-art predictive technology
       </h1>
       <p class="mt-5 text-neutral-300 max-w-2xl mx-auto">
-        Predict faults, forecast heavy loads, and optimize microgrid response — built on SIGMA research at Cal Poly Pomona.
+        AI-powered analytics for modern power systems — built to integrate with operations and deliver actionable insights.
       </p>
       <div class="mt-8 flex items-center justify-center gap-3">
         <a href="#contact" class="px-5 py-2.5 rounded-lg bg-white text-neutral-900 font-medium">Contact</a>
@@ -49,16 +56,17 @@
       <div>
         <h2 class="text-2xl font-bold text-white">About Monegrid</h2>
         <p class="mt-4 text-neutral-300">
-          Monegrid (Monemi Grid Technologies) is building AI for grid operators and campus microgrids.
-          Our stack combines digital twins (RTDS/RSCAD), Pandapower simulations, and PyTorch models to deliver early fault detection and load-aware control.
+          Monegrid (Monemi Grid Technologies) delivers AI for grid operators and campus microgrids. Our platform fuses
+          digital-twin modeling with machine learning to detect faults early, anticipate heavy demand, and recommend
+          operator-ready responses. The result: higher reliability, better asset utilization, and smoother operations.
         </p>
       </div>
       <div class="rounded-xl border border-neutral-800 p-6">
         <ul class="space-y-3 text-neutral-300">
-          <li>• Fault classification and early warning</li>
-          <li>• AI-driven load forecasting for data-center spikes</li>
-          <li>• Adaptive response recommendations</li>
-          <li>• FastAPI backend feeding a lightweight ops dashboard</li>
+          <li>• Early fault detection and event classification</li>
+          <li>• AI-driven load forecasting for heavy/AI/data-center profiles</li>
+          <li>• Adaptive response recommendations (operator-in-the-loop)</li>
+          <li>• FastAPI outputs ready for dashboards and alarms</li>
         </ul>
       </div>
     </div>
@@ -68,22 +76,22 @@
   <section id="sigma" class="max-w-6xl mx-auto px-5 py-16">
     <h2 class="text-2xl font-bold text-white">SIGMA — Smart Infrastructure Grid Monitoring AI</h2>
     <p class="mt-4 text-neutral-300 max-w-3xl">
-      SIGMA is our AI engine for microgrids: a data and simulation–driven pipeline that detects faults early,
-      forecasts heavy loads, and recommends adaptive responses. It fuses RTDS/RSCAD digital-twin scenarios with
-      Pandapower studies and real telemetry to train PyTorch models that are explainable and operations-friendly.
+      SIGMA is our analytics engine: a data- and simulation-driven pipeline that detects faults early, forecasts heavy loads,
+      and recommends adaptive responses. It blends RTDS/RSCAD digital-twin scenarios, Pandapower studies, and real telemetry
+      to train robust PyTorch models — with outputs exposed via FastAPI for seamless operational use.
     </p>
 
     <div class="mt-8 grid md:grid-cols-3 gap-6">
       <div class="rounded-xl border border-neutral-800 p-5">
         <h3 class="font-semibold text-white">Data & Digital Twin</h3>
         <p class="mt-2 text-neutral-300">
-          RTDS/RSCAD cases + Pandapower sweeps → labeled events (faults, switching, load spikes) and healthy baselines.
+          Synthetic and real datasets from RTDS/RSCAD and Pandapower create labeled events and healthy baselines.
         </p>
       </div>
       <div class="rounded-xl border border-neutral-800 p-5">
         <h3 class="font-semibold text-white">ML Models</h3>
         <p class="mt-2 text-neutral-300">
-          PyTorch classification & forecasting with feature audits, thresholds, and uncertainty checks.
+          Classification & forecasting in PyTorch with feature audits, thresholds, and uncertainty checks.
         </p>
       </div>
       <div class="rounded-xl border border-neutral-800 p-5">
@@ -94,10 +102,9 @@
       </div>
     </div>
 
-    <!-- Optional diagram image, add when ready -->
-    <!--
+    <!-- Optional diagram image (add when ready)
     <div class="mt-8">
-      <img src="assets/images/sigma-diagram.png" alt="SIGMA data → model → outputs pipeline"
+      <img src="assets/images/sigma-diagram.png" alt="SIGMA pipeline: data → models → ops outputs"
            loading="lazy" class="w-full rounded-xl border border-neutral-800">
       <p class="mt-2 text-sm text-neutral-400 text-center">
         RTDS/RSCAD + Pandapower → PyTorch models → FastAPI ops outputs
@@ -112,15 +119,15 @@
     <div class="mt-6 grid md:grid-cols-3 gap-6">
       <div class="rounded-xl border border-neutral-800 p-5">
         <h3 class="font-semibold text-white">Digital Twin</h3>
-        <p class="mt-2 text-neutral-300">RTDS/RSCAD + Pandapower for scenario generation and validation.</p>
+        <p class="mt-2 text-neutral-300">RTDS/RSCAD and Pandapower for scenario generation and validation.</p>
       </div>
       <div class="rounded-xl border border-neutral-800 p-5">
         <h3 class="font-semibold text-white">ML Pipeline</h3>
-        <p class="mt-2 text-neutral-300">PyTorch models trained on synthetic + real telemetry for fault prediction.</p>
+        <p class="mt-2 text-neutral-300">Models trained on synthetic + real telemetry for detection and forecasting.</p>
       </div>
       <div class="rounded-xl border border-neutral-800 p-5">
         <h3 class="font-semibold text-white">API & Dashboard</h3>
-        <p class="mt-2 text-neutral-300">FastAPI endpoints powering ops UI and alerts.</p>
+        <p class="mt-2 text-neutral-300">FastAPI endpoints powering dashboards and alerts.</p>
       </div>
     </div>
   </section>
@@ -136,7 +143,7 @@
         <h3 class="font-semibold text-white text-lg">Ryan Monemi</h3>
         <p class="text-sm text-blue-400">Founder & CEO</p>
         <p class="mt-2 text-neutral-400 text-sm">
-          ECE at Cal Poly Pomona. Technical lead for SIGMA — AI-based microgrid monitoring, fault detection, and adaptive control.
+          Technical founder leading product and AI integration. Focused on fault detection, load forecasting, and operator-ready analytics.
         </p>
       </div>
 
@@ -146,7 +153,8 @@
         <h3 class="font-semibold text-white text-lg">Dr. Saeed Monemi</h3>
         <p class="text-sm text-blue-400">Co-Founder & CTO</p>
         <p class="mt-2 text-neutral-400 text-sm">
-          PhD in Electrical Engineering (Vanderbilt). Specializes in power systems and fault detection; architect of our protection and analytics framework.
+          PhD in Electrical Engineering (Vanderbilt). 20+ years in the power industry at TVA, specializing in power
+          systems and fault detection. Architect of Monegrid’s protection and analytics framework.
         </p>
       </div>
 
@@ -167,14 +175,16 @@
   <section id="contact" class="max-w-6xl mx-auto px-5 py-16">
     <div class="rounded-2xl border border-neutral-800 p-8 text-center">
       <h2 class="text-2xl font-bold text-white">Contact</h2>
-      <p class="mt-3 text-neutral-300">Interested in pilots, research collabs, or investment?</p>
-      <p class="mt-1"><a class="text-blue-400 underline underline-offset-4" href="mailto:founder@monegrid.com">founder@monegrid.com</a></p>
+      <p class="mt-3 text-neutral-300">Interested in pilots, collaborations, or investment?</p>
+      <p class="mt-1">
+        <a class="text-blue-400 underline underline-offset-4" href="mailto:founder@monegrid.com">founder@monegrid.com</a>
+      </p>
     </div>
   </section>
 
   <footer class="py-10 text-center text-sm text-neutral-500">
     © <span id="y"></span> Monegrid. All rights reserved.
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
