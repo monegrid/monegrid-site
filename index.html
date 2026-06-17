@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monegrid SIGMA — Predictive Reliability for AI Data Centers</title>
+  <title>Monegrid SIGMA — Predictive Reliability for Microgrids</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Meta -->
-  <meta name="description" content="Live-deployed AI system detecting electrical and thermal anomalies at Cal Poly's Smart Grid Lab." />
+  <meta name="description" content="SIGMA is a software system that detects electrical and thermal anomalies across a microgrid in real time, before they become failures. Built for microgrids, extensible to AI data centers." />
   <meta name="theme-color" content="#0d0f12" />
 
   <!-- Open Graph + Twitter -->
-  <meta property="og:title" content="Monegrid SIGMA — Predictive Reliability for AI Data Centers" />
-  <meta property="og:description" content="Live-deployed AI system detecting electrical and thermal anomalies at Cal Poly's Smart Grid Lab." />
+  <meta property="og:title" content="Monegrid SIGMA — Predictive Reliability for Microgrids" />
+  <meta property="og:description" content="A software system that detects electrical and thermal anomalies across a microgrid in real time, before they become failures." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/images/logo.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="Monegrid logo" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Monegrid SIGMA — Predictive Reliability for AI Data Centers" />
-  <meta name="twitter:description" content="Live-deployed AI system detecting electrical and thermal anomalies at Cal Poly's Smart Grid Lab." />
+  <meta name="twitter:title" content="Monegrid SIGMA — Predictive Reliability for Microgrids" />
+  <meta name="twitter:description" content="A software system that detects electrical and thermal anomalies across a microgrid in real time, before they become failures." />
   <meta name="twitter:image" content="/assets/images/logo.png" />
 
   <!-- Favicon -->
@@ -39,10 +39,8 @@
     .fade-up-del3 { animation-delay: 0.3s; }
     .fade-up-del4 { animation-delay: 0.4s; }
 
-    /* Smooth scroll */
     html { scroll-behavior: smooth; }
 
-    /* Gradient text */
     .gradient-text {
       background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
       -webkit-background-clip: text;
@@ -50,14 +48,16 @@
       background-clip: text;
     }
 
-    /* Stats card hover effect */
-    .stat-card {
+    .card {
       transition: all 0.3s ease;
     }
-    .stat-card:hover {
+    .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
     }
+
+    /* Monospace for technical detail */
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
   </style>
 </head>
 
@@ -72,58 +72,60 @@
       </a>
       <nav class="hidden md:flex gap-8 text-sm font-medium">
         <a href="#problem" class="text-neutral-400 hover:text-white transition-colors">Problem</a>
-        <a href="#solution" class="text-neutral-400 hover:text-white transition-colors">Solution</a>
-        <a href="#traction" class="text-neutral-400 hover:text-white transition-colors">Traction</a>
-        <a href="#team" class="text-neutral-400 hover:text-white transition-colors">Team</a>
+        <a href="#how" class="text-neutral-400 hover:text-white transition-colors">How it Works</a>
+        <a href="#architecture" class="text-neutral-400 hover:text-white transition-colors">Architecture</a>
+        <a href="#status" class="text-neutral-400 hover:text-white transition-colors">Status</a>
+        <a href="#about" class="text-neutral-400 hover:text-white transition-colors">About</a>
       </nav>
-      <a href="#contact" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-all shadow-lg shadow-blue-600/20">
-        Schedule a Call
+      <a href="#contact" class="px-4 py-2 rounded-lg border border-neutral-700 hover:border-neutral-500 text-white text-sm font-medium transition-all">
+        Contact
       </a>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden">
-    <!-- Background gradient -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(96,165,250,0.1),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(96,165,250,0.08),transparent_50%)]"></div>
 
-    <div class="max-w-6xl mx-auto px-6 py-20 sm:py-28 md:py-32 relative z-10">
+    <div class="max-w-5xl mx-auto px-6 py-20 sm:py-28 md:py-32 relative z-10">
       <div class="text-center">
-        <!-- Logo -->
         <div class="flex justify-center mb-8 fade-up">
           <img src="assets/images/logo.png" alt="Monegrid logo"
                class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-2xl ring-1 ring-neutral-700/50">
         </div>
 
-        <!-- Headline -->
+        <div class="inline-block px-3 py-1 rounded-full bg-neutral-800/60 border border-neutral-700 text-neutral-300 text-sm font-medium mb-6 fade-up mono">
+          SIGMA · predictive reliability engine
+        </div>
+
         <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white fade-up fade-up-del1">
-          Predictive Reliability for<br>
-          <span class="gradient-text">AI Data Centers</span>
+          Predictive reliability<br>
+          for <span class="gradient-text">microgrids</span>
         </h1>
 
-        <!-- Sub-headline -->
         <p class="mt-6 text-xl sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed fade-up fade-up-del2">
-          <span class="text-white font-semibold">SIGMA monitors power and thermal signals in real time to detect anomalies before they cause downtime.</span>
+          SIGMA watches the electrical and thermal signals across a microgrid in real time and flags anomalies <span class="text-white font-semibold">before they turn into failures</span> — software only, on top of the telemetry you already have.
         </p>
 
-        <!-- Traction Badge -->
-        <div class="mt-8 inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600/20 to-blue-500/20 border border-blue-500/30 backdrop-blur-sm fade-up fade-up-del3">
-          <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span class="text-white font-semibold text-lg">
-            <span class="text-green-400">Deployed at Cal Poly's Smart Grid Lab</span> — detecting real-time anomalies in live power data
+        <p class="mt-5 text-base text-neutral-400 max-w-2xl mx-auto fade-up fade-up-del3">
+          Built for microgrids first. The same approach extends to any high-density power environment, including AI data centers.
+        </p>
+
+        <!-- Honest status line -->
+        <div class="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-neutral-900/70 border border-neutral-700 backdrop-blur-sm fade-up fade-up-del3">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-neutral-200 font-medium">
+            Working prototype — tested against RTDS &amp; Pandapower fault simulations in a smart-grid lab
           </span>
         </div>
 
-        <!-- CTA Buttons -->
         <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up fade-up-del4">
-          <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-lg font-semibold shadow-xl shadow-blue-600/30 transition-all hover:scale-105">
-            Watch 60-Second Demo
+          <a href="#how" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-lg font-semibold shadow-xl shadow-blue-600/30 transition-all hover:scale-105">
+            How it works
           </a>
-          <a href="#traction" class="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-neutral-700 hover:border-neutral-600 text-white text-lg font-semibold transition-all hover:scale-105">
-            See the Proof
+          <a href="#architecture" class="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-neutral-700 hover:border-neutral-600 text-white text-lg font-semibold transition-all hover:scale-105">
+            Under the hood
           </a>
         </div>
       </div>
@@ -135,349 +137,270 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">
-          Downtime is Costing AI Operators <span class="text-red-400">Millions</span>
+          Faults move faster than <span class="text-red-400">reactive monitoring</span>
         </h2>
         <p class="text-xl text-neutral-300 max-w-3xl mx-auto fade-up fade-up-del1">
-          AI workloads are doubling power demand, pushing infrastructure past its limits. "Lights-out" autonomous data centers cannot rely on reactive alarms.
+          Microgrids run on low inertia and a growing mix of inverters, batteries, and renewables. Disturbances propagate in sub-second timescales, and threshold alarms only fire <span class="text-red-400 italic">after</span> something has already gone wrong.
         </p>
       </div>
 
-      <!-- Stats Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Stat 1 -->
-        <div class="stat-card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 text-center fade-up">
-          <div class="text-5xl sm:text-6xl font-black text-red-400 mb-4">$9,000</div>
-          <div class="text-xl font-semibold text-white mb-2">Per Minute</div>
-          <p class="text-neutral-400">Cost of a data center outage</p>
+      <!-- Technical problem points -->
+      <div class="grid md:grid-cols-3 gap-6 mb-16">
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up">
+          <h3 class="text-lg font-bold text-white mb-2">Low inertia, fast dynamics</h3>
+          <p class="text-neutral-400">Inverter-dominated grids lack the rotational mass that slows down disturbances. Frequency and voltage can swing within cycles.</p>
         </div>
-
-        <!-- Stat 2 -->
-        <div class="stat-card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 text-center fade-up fade-up-del1">
-          <div class="text-5xl sm:text-6xl font-black text-orange-400 mb-4">45%</div>
-          <div class="text-xl font-semibold text-white mb-2">UPS/Power Failures</div>
-          <p class="text-neutral-400">Of outages caused by power system issues</p>
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up fade-up-del1">
+          <h3 class="text-lg font-bold text-white mb-2">Complex fault signatures</h3>
+          <p class="text-neutral-400">Distributed energy resources change how faults look. A single fixed threshold can't separate a real fault from normal operation.</p>
         </div>
-
-        <!-- Stat 3 -->
-        <div class="stat-card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 text-center fade-up fade-up-del2">
-          <div class="text-4xl sm:text-5xl font-black text-blue-400 mb-4">Top 3</div>
-          <div class="text-xl font-semibold text-white mb-2">Cooling Issues</div>
-          <p class="text-neutral-400">Cooling inefficiency among top 3 downtime causes</p>
-        </div>
-
-        <!-- Stat 4 -->
-        <div class="stat-card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 text-center fade-up fade-up-del3">
-          <div class="text-5xl sm:text-6xl font-black text-purple-400 mb-4">20×</div>
-          <div class="text-xl font-semibold text-white mb-2">AI Power Density</div>
-          <p class="text-neutral-400">AI clusters draw up to 20× higher power than typical racks</p>
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up fade-up-del2">
+          <h3 class="text-lg font-bold text-white mb-2">Reactive by design</h3>
+          <p class="text-neutral-400">Conventional protection trips on a fault that is already happening. There is no early warning and no localization of the root cause.</p>
         </div>
       </div>
 
-      <!-- Tagline -->
-      <div class="mt-12 text-center max-w-4xl mx-auto fade-up fade-up-del4">
-        <p class="text-2xl sm:text-3xl font-bold text-neutral-200 leading-relaxed">
-          Reactive alarms tell you <span class="text-red-400 italic">after</span> you've failed.<br>
-          <span class="text-green-400">SIGMA gives you predictive reliability before it happens.</span>
+      <!-- The high-stakes extension -->
+      <div class="rounded-2xl bg-blue-600/10 border border-blue-500/30 p-8 fade-up fade-up-del3">
+        <h3 class="text-2xl font-bold text-white mb-2">Where it matters most: AI data centers</h3>
+        <p class="text-lg text-neutral-300 mb-8">
+          A data center is a microgrid under extreme load. As AI pushes power density up, the cost of a missed anomaly rises with it.
         </p>
-      </div>
-
-      <!-- Why Now -->
-      <div class="mt-12 p-8 rounded-2xl bg-blue-600/10 border border-blue-500/30 fade-up fade-up-del4">
-        <div class="flex items-start gap-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-            </svg>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="text-4xl sm:text-5xl font-black text-red-400 mb-2">$9,000</div>
+            <p class="text-neutral-400">per minute of outage</p>
           </div>
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">Why Now?</h3>
-            <p class="text-lg text-neutral-300">
-              AI workloads are doubling power demand, pushing infrastructure past its limits. As data centers power the race to AGI,
-              grids face unprecedented stress. Predictive—not reactive—technology is now essential to keep critical compute systems online,
-              efficient, and sustainable.
-            </p>
+          <div class="text-center">
+            <div class="text-4xl sm:text-5xl font-black text-amber-400 mb-2">45%</div>
+            <p class="text-neutral-400">of outages from power/UPS issues</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl sm:text-5xl font-black text-amber-400 mb-2">Top 3</div>
+            <p class="text-neutral-400">cooling among leading outage causes</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl sm:text-5xl font-black text-rose-400 mb-2">20×</div>
+            <p class="text-neutral-400">AI rack power density vs. typical</p>
           </div>
         </div>
+        <p class="text-xs text-neutral-500 mt-6 mono">Industry figures: Uptime Institute, Ponemon Institute.</p>
       </div>
     </div>
   </section>
 
-  <!-- Solution Section -->
-  <section id="solution" class="py-20 sm:py-24">
+  <!-- How it Works -->
+  <section id="how" class="py-20 sm:py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">
-          From <span class="text-red-400">Reactive</span> to <span class="text-green-400">Predictive</span>
+          From <span class="text-red-400">reactive</span> to <span class="text-green-400">predictive</span>
         </h2>
         <p class="text-xl text-neutral-300 max-w-3xl mx-auto fade-up fade-up-del1">
-          SIGMA transforms your power infrastructure into a self-aware, intelligent system
+          SIGMA sits on top of existing telemetry and turns it into an early-warning layer.
         </p>
       </div>
 
-      <!-- 3-Step Process -->
       <div class="grid md:grid-cols-3 gap-8 md:gap-12">
-        <!-- Step 1 -->
         <div class="text-center fade-up">
           <div class="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center mb-6 shadow-xl shadow-blue-600/30">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
             </svg>
           </div>
-          <div class="inline-block px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-sm font-semibold mb-4">Step 1</div>
-          <h3 class="text-2xl font-bold text-white mb-4">Monitor</h3>
+          <div class="inline-block px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-sm font-semibold mb-4 mono">01 · Monitor</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Ingest</h3>
           <p class="text-neutral-300 text-lg">
-            Live electrical and thermal telemetry from sensors and simulations
+            Streams electrical and thermal telemetry — voltage, current, frequency, temperature — from sensors and simulation.
           </p>
         </div>
 
-        <!-- Step 2 -->
         <div class="text-center fade-up fade-up-del1">
-          <div class="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-500 flex items-center justify-center mb-6 shadow-xl shadow-purple-600/30">
+          <div class="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center mb-6 shadow-xl shadow-blue-600/30">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </div>
-          <div class="inline-block px-3 py-1 rounded-full bg-purple-600/20 text-purple-400 text-sm font-semibold mb-4">Step 2</div>
-          <h3 class="text-2xl font-bold text-white mb-4">Predict</h3>
+          <div class="inline-block px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 text-sm font-semibold mb-4 mono">02 · Predict</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Detect</h3>
           <p class="text-neutral-300 text-lg">
-            AI model trained on synthetic (RTDS, Pandapower) and real data identifies fault signatures
+            A model trained on simulated and real signals learns normal behavior and flags the signatures that precede a fault.
           </p>
         </div>
 
-        <!-- Step 3 -->
         <div class="text-center fade-up fade-up-del2">
           <div class="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-br from-green-600 to-green-500 flex items-center justify-center mb-6 shadow-xl shadow-green-600/30">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <div class="inline-block px-3 py-1 rounded-full bg-green-600/20 text-green-400 text-sm font-semibold mb-4">Step 3</div>
-          <h3 class="text-2xl font-bold text-white mb-4">Prevent & Localize</h3>
+          <div class="inline-block px-3 py-1 rounded-full bg-green-600/20 text-green-400 text-sm font-semibold mb-4 mono">03 · Localize</div>
+          <h3 class="text-2xl font-bold text-white mb-4">Alert &amp; localize</h3>
           <p class="text-neutral-300 text-lg">
-            Anomaly alerts integrate into existing dashboards — <span class="text-white font-semibold">no new hardware required</span>. When faults occur, SIGMA localizes them, telling you <span class="text-white font-semibold">exactly where and how</span> to respond
+            Anomalies surface in existing dashboards with a location and likely cause — <span class="text-white font-semibold">no new hardware required</span>.
           </p>
         </div>
       </div>
 
-      <!-- Key Feature Badge -->
       <div class="mt-16 text-center fade-up fade-up-del3">
-        <div class="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-emerald-600/20 to-emerald-500/20 border-2 border-emerald-500/40">
-          <svg class="w-8 h-8 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+        <div class="inline-flex items-center gap-3 px-8 py-5 rounded-2xl bg-gradient-to-r from-emerald-600/15 to-emerald-500/15 border border-emerald-500/30">
+          <svg class="w-7 h-7 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
-          <span class="text-xl font-bold text-white">
-            No Hardware Replacements. 100% Software Integration.
+          <span class="text-lg font-bold text-white">
+            Software only. Integrates with existing monitoring — no hardware replacements.
           </span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Traction Section -->
-  <section id="traction" class="py-20 sm:py-24 bg-neutral-900/50">
+  <!-- Architecture / Under the Hood -->
+  <section id="architecture" class="py-20 sm:py-24 bg-neutral-900/50">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">
-          Validated in <span class="text-green-400">Live Grid Environments</span>
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Cal Poly Deployment -->
-        <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 fade-up">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold text-white">Cal Poly Smart Grid Lab Deployment</h3>
-          </div>
-          <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <p class="text-neutral-300 text-lg">
-                Deployed within Cal Poly's Smart Grid Lab environment
-              </p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <p class="text-neutral-300 text-lg">
-                Detects real-time anomalies in live telemetry streams
-              </p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <p class="text-neutral-300 text-lg">
-                Achieved <span class="text-green-400 font-bold text-xl">94.5% accuracy</span> on simulated fault detection
-              </p>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <p class="text-neutral-300 text-lg">
-                Integrated with real RTDS & Pandapower data pipelines
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo Video -->
-        <div class="fade-up fade-up-del1">
-          <div class="rounded-2xl bg-gradient-to-br from-blue-900/40 to-blue-800/40 border-2 border-blue-600/50 p-8">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <h3 class="text-2xl font-bold text-white">See SIGMA in Action</h3>
-            </div>
-            <p class="text-neutral-300 mb-6 text-lg">
-              Watch our 60-second demo showing SIGMA identifying anomalies before failure
-            </p>
-            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all hover:scale-105">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
-              </svg>
-              Watch Demo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section - Our Unfair Advantage -->
-  <section id="team" class="py-20 sm:py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">
-          Built by <span class="gradient-text">Power-Systems Insiders</span>
+          Under the hood
         </h2>
         <p class="text-xl text-neutral-300 max-w-3xl mx-auto fade-up fade-up-del1">
-          We blend grid protection expertise with modern AI engineering
+          SIGMA is built as a pipeline: simulate or stream the signals, learn what normal looks like, score deviations, and route alerts.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- Ryan Monemi -->
-        <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 hover:border-blue-600/50 transition-all fade-up">
-          <div class="flex flex-col items-center text-center">
-            <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi"
-                 class="w-32 h-32 rounded-2xl object-cover mb-6 ring-2 ring-neutral-700">
-            <h3 class="text-2xl font-bold text-white mb-2">Ryan Monemi</h3>
-            <p class="text-blue-400 font-semibold mb-4">Co-Founder / CEO</p>
-            <div class="space-y-3 text-neutral-300">
-              <p class="text-lg">
-                Built the <span class="text-white font-semibold">full stack</span> (Embedded / ML / Cloud)
-              </p>
-              <p class="text-lg">
-                Electrical Engineering — Cal Poly Pomona <span class="text-blue-400 font-semibold">(Graduating Early, 2026)</span>
-              </p>
-              <p class="text-lg">
-                Former Equipment Engineer Intern @ <span class="text-white font-semibold">SDG&E</span>
-              </p>
-            </div>
-          </div>
+      <!-- Pipeline -->
+      <div class="rounded-2xl bg-neutral-950 border border-neutral-800 p-6 sm:p-8 mb-12 fade-up overflow-x-auto">
+        <div class="mono text-sm sm:text-base text-neutral-300 flex items-center gap-3 whitespace-nowrap">
+          <span class="px-3 py-2 rounded-lg bg-blue-600/15 text-blue-300 border border-blue-600/30">RTDS / Pandapower / sensors</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-neutral-800 text-neutral-200 border border-neutral-700">feature extraction</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-purple-600/15 text-purple-300 border border-purple-600/30">anomaly model</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-green-600/15 text-green-300 border border-green-600/30">alert + localization</span>
         </div>
+      </div>
 
-        <!-- Dr. Saeed Monemi -->
-        <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 hover:border-blue-600/50 transition-all fade-up fade-up-del1">
-          <div class="flex flex-col items-center text-center">
-            <img src="assets/images/SaeedMonemi.png" alt="Dr. Saeed Monemi"
-                 class="w-32 h-32 rounded-2xl object-cover mb-6 ring-2 ring-neutral-700">
-            <h3 class="text-2xl font-bold text-white mb-2">Dr. Saeed Monemi</h3>
-            <p class="text-blue-400 font-semibold mb-4">Co-Founder / PhD</p>
-            <div class="space-y-3 text-neutral-300">
-              <p class="text-lg">
-                20 years @ <span class="text-white font-semibold">TVA</span> — Power System Protection
-              </p>
-              <p class="text-lg">
-                PhD Electrical Engineering — <span class="text-white font-semibold">Vanderbilt University</span>
-              </p>
-              <p class="text-lg">
-                Utility relationships: <span class="text-white font-semibold">Edison, LADWP, PG&E, SDG&E</span>
-              </p>
-            </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up">
+          <h3 class="text-xl font-bold text-white mb-3">Data &amp; simulation</h3>
+          <p class="text-neutral-400">Fault and disturbance scenarios are generated in <span class="text-neutral-200">RTDS</span> and <span class="text-neutral-200">Pandapower</span>, giving labeled data across conditions that are rare or unsafe to reproduce on a live system.</p>
+        </div>
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up fade-up-del1">
+          <h3 class="text-xl font-bold text-white mb-3">Signal processing</h3>
+          <p class="text-neutral-400">Time-series features are extracted from electrical and thermal channels — capturing the transient behavior that distinguishes a developing fault from normal load variation.</p>
+        </div>
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up">
+          <h3 class="text-xl font-bold text-white mb-3">Anomaly model</h3>
+          <p class="text-neutral-400">A machine-learning model learns the system's normal operating envelope and scores deviations in real time, classifying fault signatures rather than tripping on a single threshold.</p>
+        </div>
+        <div class="card rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-7 fade-up fade-up-del1">
+          <h3 class="text-xl font-bold text-white mb-3">Integration</h3>
+          <p class="text-neutral-400">Output is delivered as alerts into existing SCADA and monitoring dashboards. The whole system runs in software, alongside infrastructure that is already in place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section id="status" class="py-20 sm:py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">
+          Where it stands
+        </h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto fade-up fade-up-del1">
+          SIGMA is a working prototype, built and tested in a smart-grid lab. The current focus is microgrid fault detection on simulated data, ahead of a live deployment.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 fade-up fade-up-del2">
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+            <p class="text-neutral-300 text-lg">End-to-end prototype running the full pipeline, from simulated telemetry to localized alerts.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+            <p class="text-neutral-300 text-lg">Tested against fault scenarios generated in RTDS and Pandapower.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+            <p class="text-neutral-300 text-lg">Developed in a Cal Poly smart-grid lab environment.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-2 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+            <p class="text-neutral-300 text-lg"><span class="text-blue-300 font-semibold">Next:</span> validation on live telemetry from a real microgrid, then extension to data-center power and cooling.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Vision Section -->
+  <!-- Roadmap / Vision -->
   <section class="py-20 sm:py-24 bg-neutral-900/50">
     <div class="max-w-5xl mx-auto px-6">
       <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-10 md:p-12 text-center fade-up">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 mb-6">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 mb-6">
           <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
           </svg>
         </div>
         <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6">
-          The OS for <span class="gradient-text">Energy Infrastructure</span>
+          A reliability layer for <span class="gradient-text">distributed energy</span>
         </h2>
         <div class="max-w-3xl mx-auto space-y-4 text-lg text-neutral-300">
-          <p>
-            We're starting with AI data centers — where reliability demands are highest.
-          </p>
-          <p>
-            Next: campus microgrids and industrial facilities.
-          </p>
-          <p>
-            Long-term, SIGMA will become the reliability layer for distributed energy systems as the grid transitions to renewables.
-          </p>
+          <p>Start with microgrids, where fault dynamics are fast and monitoring is thin.</p>
+          <p>Extend to AI data centers and industrial facilities, where the cost of a missed anomaly is highest.</p>
+          <p>Over time, SIGMA becomes a predictive reliability layer for the distributed systems the grid is moving toward.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <section id="contact" class="py-20 sm:py-28">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="rounded-3xl bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-purple-900/40 border-2 border-blue-600/40 p-10 md:p-16 text-center relative overflow-hidden fade-up">
-        <!-- Background decoration -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]"></div>
+  <!-- About -->
+  <section id="about" class="py-20 sm:py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">
+          Built by <span class="gradient-text">one engineer</span>
+        </h2>
+      </div>
 
+      <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 sm:p-10 fade-up fade-up-del1">
+        <div class="flex flex-col items-center text-center">
+          <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi"
+               class="w-32 h-32 rounded-2xl object-cover mb-6 ring-2 ring-neutral-700">
+          <h3 class="text-2xl font-bold text-white mb-1">Ryan Monemi</h3>
+          <p class="text-blue-400 font-semibold mb-6">Power &amp; software engineer · creator of SIGMA</p>
+          <div class="space-y-3 text-neutral-300 text-lg">
+            <p>Designed and built SIGMA end to end — the simulation pipeline, the anomaly model, and the integration layer.</p>
+            <p>B.S. Electrical Engineering, Cal Poly Pomona — power systems and machine learning.</p>
+            <p>Equipment Engineer Intern at <span class="text-white font-semibold">SDG&amp;E</span>, working on utility power infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 sm:py-28">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-blue-900/30 via-neutral-900 to-neutral-900 border border-blue-600/30 p-10 md:p-16 text-center relative overflow-hidden fade-up">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08),transparent_70%)]"></div>
         <div class="relative z-10">
           <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            Join the Next Era of Predictive Reliability
+            Get in touch
           </h2>
-          <p class="text-2xl text-neutral-300 mb-8">
-            We're scheduling pilot programs with AI data centers and campus microgrids
+          <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+            If you work on microgrids, distributed energy, or data-center power and want to talk about SIGMA, reach out directly.
           </p>
-
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
-            <a href="mailto:founder@monegrid.com"
-               class="w-full sm:w-auto px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xl font-bold shadow-2xl shadow-blue-600/40 transition-all hover:scale-105 flex items-center justify-center gap-3">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              Schedule a Call
-            </a>
-          </div>
-
-          <div class="space-y-3">
-            <p class="text-neutral-300 text-lg">
-              <a href="mailto:founder@monegrid.com" class="text-blue-400 hover:text-blue-300 font-semibold text-xl underline underline-offset-4">
-                founder@monegrid.com
-              </a>
-            </p>
-            <div class="flex items-center justify-center gap-2 text-neutral-400">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              <span>@monegrid</span>
-            </div>
-          </div>
+          <a href="mailto:founder@monegrid.com"
+             class="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xl font-bold shadow-2xl shadow-blue-600/30 transition-all hover:scale-105">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            founder@monegrid.com
+          </a>
         </div>
       </div>
     </div>
@@ -492,15 +415,15 @@
           <span class="font-bold text-white tracking-tight">Monegrid</span>
         </div>
         <div class="text-neutral-500 text-sm">
-          © <span id="year"></span> Monemi Grid Technologies. All rights reserved.
+          © <span id="year"></span> Monegrid · SIGMA
         </div>
         <div class="flex items-center gap-6">
-          <a href="mailto:founder@monegrid.com" class="text-neutral-400 hover:text-white transition-colors">
+          <a href="mailto:founder@monegrid.com" class="text-neutral-400 hover:text-white transition-colors" aria-label="Email">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </a>
-          <a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors">
+          <a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors" aria-label="Instagram">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
