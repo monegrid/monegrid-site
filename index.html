@@ -7,6 +7,17 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- MathJax -->
   <script>
@@ -49,7 +60,8 @@
     }
     .card { transition: all 0.3s ease; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15); }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     /* MathJax sizing in dark cards */
     mjx-container { color: #e5e7eb; }
     mjx-container[display="true"] { margin: 0 !important; overflow-x: auto; overflow-y: hidden; }
@@ -399,7 +411,7 @@
           <p class="text-blue-400 font-semibold mb-6">Power &amp; software engineer · creator of SIGMA</p>
           <div class="space-y-3 text-neutral-300 text-lg">
             <p>Designed and built SIGMA end to end — the physics-informed model, the simulation and sensing pipeline, and the real-time serving layer — and lead author of the research behind it.</p>
-            <p>B.S. Electrical Engineering · M.S. Electrical Engineering — power systems and machine learning.</p>
+            <p>B.S. Electrical Engineering · M.S. Electrical Engineering — advanced artificial-intelligence algorithms.</p>
             <p>Equipment Engineer Intern at <span class="text-white font-semibold">SDG&amp;E</span>, working on utility power infrastructure.</p>
           </div>
         </div>
