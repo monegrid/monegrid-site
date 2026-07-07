@@ -34,7 +34,7 @@
 
   <!-- Open Graph + Twitter -->
   <meta property="og:title" content="Monegrid SIGMA — Physics-Informed Fault Prediction for Microgrids" />
-  <meta property="og:description" content="A real-time fault-probability model rooted in grid physics. Interpretable, millisecond-fast, and validated against simulated and measured microgrid faults." />
+  <meta property="og:description" content="A real-time fault-probability model rooted in grid physics. Interpretable, sub-5 ms per window, and validated against simulated and measured microgrid faults." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/images/logo.png" />
   <meta property="og:image:type" content="image/png" />
@@ -59,7 +59,7 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .card { transition: all 0.3s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15); }
+    .card:hover { transform: translateY(-2px); border-color: rgb(82 82 91); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); }
     body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
     .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     /* MathJax sizing in dark cards */
@@ -107,15 +107,14 @@
         prediction for <span class="gradient-text">microgrids</span>
       </h1>
       <p class="mt-6 text-xl sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed fade-up fade-up-del2">
-        SIGMA computes a real-time fault probability from power-quality signals and flags incipient faults <span class="text-white font-semibold">~12 seconds before onset</span> — interpretable, millisecond-fast, and rooted in grid physics.
+        SIGMA computes a real-time fault probability from power-quality signals and flags incipient faults <span class="text-white font-semibold">~12 seconds before onset</span>. It is interpretable, sub-5&nbsp;ms per window, and grounded in grid physics.
       </p>
-      <div class="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-neutral-900/70 border border-neutral-700 backdrop-blur-sm fade-up fade-up-del3">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-neutral-200 font-medium">Published research — validated on a 12&nbsp;V DC microgrid testbed and Pandapower simulations</span>
+      <div class="mt-8 inline-flex items-center px-5 py-3 rounded-2xl bg-neutral-900/70 border border-neutral-700 backdrop-blur-sm fade-up fade-up-del3">
+        <span class="text-neutral-200 font-medium">Published research, validated on a 12&nbsp;V DC microgrid testbed and Pandapower simulations</span>
       </div>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up fade-up-del3">
-        <a href="#research" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-lg font-semibold shadow-xl shadow-blue-600/30 transition-all hover:scale-105">Read the paper</a>
-        <a href="#method" class="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-neutral-700 hover:border-neutral-600 text-white text-lg font-semibold transition-all hover:scale-105">See the method</a>
+        <a href="#research" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-lg font-semibold shadow-xl shadow-blue-600/30 transition-all">Read the paper</a>
+        <a href="#method" class="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-neutral-700 hover:border-neutral-600 text-white text-lg font-semibold transition-all">See the method</a>
       </div>
     </div>
   </section>
@@ -359,7 +358,7 @@
         </h3>
         <p class="text-neutral-400 mb-6">R. Monemi and S. Monemi · Electrical and Computer Engineering</p>
         <p class="text-neutral-300 leading-relaxed mb-8">
-          SIGMA (Smart Infrastructure Grid Monitoring AI) computes a real-time fault probability from power-quality features using a logistic core and sliding windows, with an optional Kalman filter for noise rejection. The approach bridges classical reliability analysis and modern AI-based predictive maintenance — transparent, fast, and rooted in grid physics.
+          SIGMA (Smart Infrastructure Grid Monitoring AI) computes a real-time fault probability from power-quality features using a logistic core and sliding windows, with an optional Kalman filter for noise rejection. The approach bridges classical reliability analysis and modern AI-based predictive maintenance.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">smart grids</span>
@@ -369,7 +368,7 @@
           <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">reliability modeling</span>
         </div>
         <a href="assets/SIGMA-Monemi.pdf" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all hover:scale-105">
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
           </svg>
@@ -400,19 +399,20 @@
 
   <!-- About -->
   <section id="about" class="py-20 sm:py-24 bg-neutral-900/50">
-    <div class="max-w-3xl mx-auto px-6">
+    <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">About the creator</h2>
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-6 fade-up">About the engineer</h2>
       </div>
       <div class="rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 border border-neutral-700 p-8 sm:p-10 fade-up fade-up-del1">
-        <div class="flex flex-col items-center text-center">
-          <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi" class="w-32 h-32 rounded-2xl object-cover mb-6 ring-2 ring-neutral-700">
-          <h3 class="text-2xl font-bold text-white mb-1">Ryan Monemi</h3>
-          <p class="text-blue-400 font-semibold mb-6">Power &amp; software engineer · creator of SIGMA</p>
-          <div class="space-y-3 text-neutral-300 text-lg">
-            <p>Designed and built SIGMA end to end — the physics-informed model, the simulation and sensing pipeline, and the real-time serving layer — and lead author of the research behind it.</p>
-            <p>B.S. Electrical Engineering · M.S. Electrical Engineering — advanced artificial-intelligence algorithms.</p>
-            <p>Electric Distribution Engineering Intern at <span class="text-white font-semibold">SDG&amp;E</span>, working on utility power infrastructure.</p>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+          <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover ring-1 ring-neutral-700 shrink-0 mx-auto sm:mx-0">
+          <div class="text-center sm:text-left">
+            <h3 class="text-2xl font-bold text-white mb-1">Ryan Monemi</h3>
+            <p class="text-blue-400 font-medium mb-5">Engineer at SKM Systems Analysis · M.S. candidate</p>
+            <div class="space-y-4 text-neutral-300 leading-relaxed">
+              <p>He built SIGMA himself: the physics-informed model, the simulation and sensing pipeline, and the real-time serving layer that connects them. He is lead author of the paper behind it, &ldquo;SIGMA: A Physics-Informed AI Framework for Predictive Fault Probability Modeling in Microgrids&rdquo; (R. Monemi and S. Monemi).</p>
+              <p>At SKM Systems Analysis he validates PTW and PTX power studies. He holds a B.S. in Electrical Engineering from Cal Poly Pomona and previously interned in Electric Distribution Engineering at SDG&amp;E.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -430,7 +430,7 @@
             If you work on microgrids, power-system protection, or data-center power and want to talk about SIGMA, reach out directly.
           </p>
           <a href="mailto:founder@monegrid.com"
-             class="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xl font-bold shadow-2xl shadow-blue-600/30 transition-all hover:scale-105">
+             class="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xl font-bold shadow-2xl shadow-blue-600/30 transition-all">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
