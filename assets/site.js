@@ -12,7 +12,10 @@
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var W = 0, H = 0, CELL = 84, cols = 0, rows = 0;
     var pulses = [];
+    var flashes = [];
+    var mouse = { x: -1e4, y: -1e4 };
     var running = !reduceMotion;
+    var MAX_PULSES = 12;
 
     function resize() {
       W = window.innerWidth; H = window.innerHeight;
@@ -21,43 +24,57 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cols = Math.ceil(W / CELL) + 1;
       rows = Math.ceil(H / CELL) + 1;
-      drawStatic();
+      drawStatic(0);
     }
 
-    function drawStatic() {
+    function drawStatic(t) {
       ctx.clearRect(0, 0, W, H);
+      /* breathing radial glow */
+      var breath = reduceMotion ? 0 : Math.sin(t / 4200) * 0.012;
       var g = ctx.createRadialGradient(W * 0.5, H * 0.25, 0, W * 0.5, H * 0.25, Math.max(W, H) * 0.9);
-      g.addColorStop(0, 'rgba(37, 99, 235, 0.055)');
+      g.addColorStop(0, 'rgba(37, 99, 235, ' + (0.055 + breath) + ')');
       g.addColorStop(0.55, 'rgba(15, 23, 42, 0)');
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, W, H);
+      /* faint grid lines */
       ctx.strokeStyle = 'rgba(148, 163, 184, 0.055)';
       ctx.lineWidth = 1;
       ctx.beginPath();
       for (var c = 0; c <= cols; c++) { ctx.moveTo(c * CELL, 0); ctx.lineTo(c * CELL, H); }
       for (var r = 0; r <= rows; r++) { ctx.moveTo(0, r * CELL); ctx.lineTo(W, r * CELL); }
       ctx.stroke();
-      ctx.fillStyle = 'rgba(148, 163, 184, 0.10)';
+      /* node dots, brighter near the cursor */
       for (var i = 0; i <= cols; i++) {
         for (var j = 0; j <= rows; j++) {
-          ctx.fillRect(i * CELL - 1, j * CELL - 1, 2, 2);
+          var nx = i * CELL, ny = j * CELL;
+          var dx = nx - mouse.x, dy = ny - mouse.y;
+          var d2 = dx * dx + dy * dy;
+          if (d2 < 32400) { /* within 180px of cursor */
+            var k = 1 - Math.sqrt(d2) / 180;
+            ctx.fillStyle = 'rgba(147, 197, 253, ' + (0.10 + k * 0.45) + ')';
+            ctx.fillRect(nx - 1.5, ny - 1.5, 3, 3);
+          } else {
+            ctx.fillStyle = 'rgba(148, 163, 184, 0.10)';
+            ctx.fillRect(nx - 1, ny - 1, 2, 2);
+          }
         }
       }
     }
 
-    function spawnPulse() {
-      var horizontal = Math.random() < 0.5;
-      var line = horizontal
-        ? Math.floor(Math.random() * rows)
-        : Math.floor(Math.random() * cols);
-      var startLow = Math.random() < 0.5;
+    function spawnPulse(h, line, pos, dir) {
+      if (pulses.length >= MAX_PULSES) return;
+      if (h === undefined) {
+        h = Math.random() < 0.5;
+        line = h ? Math.floor(Math.random() * rows) : Math.floor(Math.random() * cols);
+        var startLow = Math.random() < 0.5;
+        pos = startLow ? -0.1 : 1.1;
+        dir = startLow ? 1 : -1;
+      }
       pulses.push({
-        h: horizontal,
-        line: line,
-        pos: startLow ? -0.1 : 1.1,
-        dir: startLow ? 1 : -1,
-        speed: (0.12 + Math.random() * 0.22) / 100,
-        len: 90 + Math.random() * 130
+        h: h, line: line, pos: pos, dir: dir,
+        speed: (0.10 + Math.random() * 0.26) / 100,
+        len: 90 + Math.random() * 140,
+        lastNode: -1
       });
     }
 
@@ -68,9 +85,13 @@
       var dt = Math.min(t - last, 50);
       last = t;
 
-      drawStatic();
+      /* self-heal: pages loaded in a hidden or zero-size context get a 0x0
+         canvas and no resize event — recheck each frame, it is cheap */
+      if (W !== window.innerWidth || H !== window.innerHeight) resize();
 
-      if (pulses.length < 7 && Math.random() < 0.045) spawnPulse();
+      drawStatic(t);
+
+      if (pulses.length < 9 && Math.random() < 0.06) spawnPulse();
 
       for (var i = pulses.length - 1; i >= 0; i--) {
         var p = pulses[i];
@@ -95,6 +116,7 @@
         ctx.lineTo(x1, y1);
         ctx.stroke();
 
+        /* glowing head */
         ctx.save();
         ctx.shadowColor = 'rgba(96, 165, 250, 0.9)';
         ctx.shadowBlur = 10;
@@ -103,18 +125,68 @@
         ctx.arc(x1, y1, 1.6, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
+
+        /* node crossing: flash the node, occasionally branch */
+        var nodeIdx = Math.round(head / CELL);
+        if (nodeIdx !== p.lastNode && nodeIdx >= 0) {
+          p.lastNode = nodeIdx;
+          var nx = p.h ? nodeIdx * CELL : fixed;
+          var ny = p.h ? fixed : nodeIdx * CELL;
+          if (nx >= -CELL && nx <= W + CELL && ny >= -CELL && ny <= H + CELL) {
+            flashes.push({ x: nx, y: ny, born: t });
+            if (Math.random() < 0.10 && pulses.length < MAX_PULSES) {
+              /* branch: perpendicular pulse from this node */
+              var bh = !p.h;
+              var bline = Math.round((bh ? ny : nx) / CELL);
+              var bpos = (bh ? nx : ny) / (bh ? W : H);
+              spawnPulse(bh, bline, bpos, Math.random() < 0.5 ? 1 : -1);
+            }
+          }
+        }
       }
+
+      /* node flashes: quick bloom that decays over ~600ms */
+      for (var f = flashes.length - 1; f >= 0; f--) {
+        var fl = flashes[f];
+        var age = (t - fl.born) / 600;
+        if (age >= 1) { flashes.splice(f, 1); continue; }
+        var a = (1 - age) * 0.5;
+        ctx.save();
+        ctx.shadowColor = 'rgba(96, 165, 250, ' + a + ')';
+        ctx.shadowBlur = 14;
+        ctx.fillStyle = 'rgba(191, 219, 254, ' + a + ')';
+        ctx.beginPath();
+        ctx.arc(fl.x, fl.y, 2.2 + age * 2.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
       requestAnimationFrame(frame);
     }
 
     resize();
     window.addEventListener('resize', resize);
+    window.addEventListener('pointermove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+    window.addEventListener('pointerleave', function () { mouse.x = -1e4; mouse.y = -1e4; });
     document.addEventListener('visibilitychange', function () {
       if (reduceMotion) return;
       if (document.hidden) { running = false; }
       else if (!running) { running = true; last = 0; requestAnimationFrame(frame); }
     });
     if (running) requestAnimationFrame(frame);
+  }
+
+  /* ---------- hero parallax ---------- */
+  var heroLayer = document.querySelector('.hero-parallax');
+  if (heroLayer && !reduceMotion) {
+    var ticking = false;
+    var parallax = function () {
+      heroLayer.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px)';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(parallax); }
+    }, { passive: true });
   }
 
   /* ---------- scroll reveal ---------- */
