@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>See What We Do — Example Study &amp; Start Yours | Monegrid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta name="description" content="Walk through a real Monegrid example — a 200 MW data-center grid-interconnection study, from model to mitigation — then tell us about your project." />
+  <meta name="theme-color" content="#06080c" />
+  <meta property="og:title" content="See What We Do — Example Study &amp; Start Yours | Monegrid" />
+  <meta property="og:description" content="Walk through a real Monegrid example — a 200 MW data-center grid-interconnection study, from model to mitigation — then tell us about your project." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.monegrid.com/assets/images/logo.png" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 selection:bg-blue-500/20 selection:text-white antialiased">
+
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <div class="site-content">
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white tracking-tight text-lg">Monegrid</span>
+      </a>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="services.html" class="text-neutral-400 hover:text-white transition-colors">Services</a>
+        <a href="sigma.html" class="text-neutral-400 hover:text-white transition-colors">SIGMA Platform</a>
+        <a href="research.html" class="text-neutral-400 hover:text-white transition-colors">Research</a>
+        <a href="team.html" class="text-neutral-400 hover:text-white transition-colors">Team</a>
+        <a href="contact.html" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/25">
+          Book a discovery call
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-neutral-300 hover:text-white" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-800/50 bg-neutral-950/95 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="services.html" class="text-neutral-300 hover:text-white">Services</a>
+      <a href="sigma.html" class="text-neutral-300 hover:text-white">SIGMA Platform</a>
+      <a href="research.html" class="text-neutral-300 hover:text-white">Research</a>
+      <a href="team.html" class="text-neutral-300 hover:text-white">Team</a>
+      <a href="contact.html" class="text-neutral-300 hover:text-white">Contact</a>
+      <a href="contact.html" class="text-blue-400 font-semibold">Book a discovery call</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]"></div>
+    <div class="max-w-4xl mx-auto px-6 pt-40 pb-16 sm:pt-44 sm:pb-20 relative z-10 text-center">
+      <div class="reveal on">
+        <span class="eyebrow">One example, start to finish</span>
+      </div>
+      <h1 class="display mt-8 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white reveal on" data-d="1">
+        See what <span class="gradient-text">we do</span>
+      </h1>
+      <p class="mt-6 text-xl sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed reveal on" data-d="2">
+        Below is a real study, the way we actually run one — the problem, the model, the results, the fix. Then tell us about yours.
+      </p>
+      <div class="mt-10 reveal on" data-d="3">
+        <a href="#form" class="btn-primary text-lg">Skip to the form <span aria-hidden="true">&darr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-glow max-w-5xl mx-auto" />
+
+  <!-- Example study: context -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="reveal"><span class="eyebrow">Example study</span></div>
+        <h2 class="display mt-8 text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal" data-d="1">A 200 MW data center<br>meets the grid</h2>
+      </div>
+      <div class="space-y-5 text-lg text-neutral-300 leading-relaxed reveal" data-d="2">
+        <p>
+          In July 2024, roughly 1,500 megawatts of data-center load dropped off the Eastern Interconnection at once. A larger event followed in early 2025. Regulators investigated, and the finding surprised people: the grid did its job. A routine sequence of faults cleared normally. The data centers tripped themselves — their UPS systems transferred to backup on each voltage sag, and count-based logic locked the facilities off the grid until someone manually reset them.
+        </p>
+        <p>
+          Our example study reproduces that failure mode end to end for a 200 MW hyperscale facility interconnecting at 230 kV, sweeps the conditions that matter, and then demonstrates the fix — which turns out to be a settings change, not new iron.
+        </p>
+      </div>
+
+      <!-- model spec strip -->
+      <div class="card-quiet p-6 sm:p-8 mt-12 reveal">
+        <div class="mono text-xs uppercase tracking-widest text-neutral-500 mb-4">The model, in one line each</div>
+        <div class="grid sm:grid-cols-2 gap-x-10 gap-y-3 mono text-sm text-neutral-300">
+          <div><span class="text-blue-400">load</span> · 200 MW hyperscale data center</div>
+          <div><span class="text-blue-400">interconnection</span> · 230 kV point of interconnection</div>
+          <div><span class="text-blue-400">transformer</span> · 240 MVA, 230/34.5 kV</div>
+          <div><span class="text-blue-400">grid strength</span> · swept SCR 2 &rarr; 10</div>
+          <div><span class="text-blue-400">protection logic</span> · UPS transfer at 0.88 pu, 3-count lockout</div>
+          <div><span class="text-blue-400">pass/fail</span> · demand-side ride-through envelope</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we run it -->
+  <section class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">How we run a study</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-2xl font-bold mb-3">01</div>
+          <h3 class="text-lg font-bold text-white mb-2">Every assumption in one place</h3>
+          <p class="text-neutral-400">One configuration file holds every modeling choice — load, grid strength, transformer, thresholds, sweep ranges. Change it, re-run, everything updates.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-2xl font-bold mb-3">02</div>
+          <h3 class="text-lg font-bold text-white mb-2">The model is code</h3>
+          <p class="text-neutral-400">We build the simulation model programmatically — every component placed and wired in reviewable code, not clicked together in a GUI. Reproducible by anyone, defensible line by line.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-blue-400 text-2xl font-bold mb-3">03</div>
+          <h3 class="text-lg font-bold text-white mb-2">Sweep what matters</h3>
+          <p class="text-neutral-400">Fault type, clearing time, reclose sequences, grid strength, load steps — the answer is a map of where you are safe and where you are not, never a single point.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="3">
+          <div class="mono text-blue-400 text-2xl font-bold mb-3">04</div>
+          <h3 class="text-lg font-bold text-white mb-2">We attack our own results</h3>
+          <p class="text-neutral-400">Independent hand calculations and an adversarial self-audit go after every claim before you see it. What survives is what we stand behind — and what a PE stamps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">The results that tell the story</h2>
+        <p class="text-lg text-neutral-400 max-w-3xl mx-auto reveal" data-d="1">
+          Representative waveforms, re-simulated in our open Python pipeline from the study&rsquo;s documented parameters.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        <figure class="card-quiet p-4 sm:p-6 reveal">
+          <img src="assets/study/reclose_lockout.png" alt="Multi-shot reclose sequence: voltage sags and grid draw, with UPS lockout on the third shot" class="w-full rounded-lg" loading="lazy">
+          <figcaption class="mt-4 px-2 text-neutral-400 leading-relaxed">
+            <span class="text-white font-semibold">The failure mode, reproduced.</span> Three fault shots, each cleared normally by the grid. The facility rides the first two — transferring to backup and returning — but the third strike trips the disturbance counter, and 200 MW locks off the grid until a manual reset.
+          </figcaption>
+        </figure>
+
+        <figure class="card-quiet p-4 sm:p-6 reveal">
+          <img src="assets/study/mitigation.png" alt="Baseline versus reset-on-recovery mitigation: grid draw through the same three-shot sequence" class="w-full rounded-lg" loading="lazy">
+          <figcaption class="mt-4 px-2 text-neutral-400 leading-relaxed">
+            <span class="text-white font-semibold">The fix costs nothing.</span> Same three-shot sequence, one settings change: the disturbance counter resets after each clean recovery. The as-found configuration loses the facility on shot three; the corrected one rides the whole sequence.
+          </figcaption>
+        </figure>
+
+        <figure class="card-quiet p-4 sm:p-6 reveal">
+          <img src="assets/study/ride_through_envelope.png" alt="Fault ride-through voltage trajectories for 4, 5, and 6-cycle clearing against the demand-side ride-through envelope" class="w-full rounded-lg" loading="lazy">
+          <figcaption class="mt-4 px-2 text-neutral-400 leading-relaxed">
+            <span class="text-white font-semibold">Judged against the envelope.</span> Every run is graded against a demand-side ride-through boundary — depth and duration, not vibes. Here, the clearing-time sweep shows how long the facility can afford protection to take.
+          </figcaption>
+        </figure>
+
+        <figure class="card-quiet p-4 sm:p-6 reveal">
+          <img src="assets/study/load_step_scr.png" alt="POI voltage response to a 40 percent synchronized load ramp at SCR 2, 3, 5 and 10" class="w-full rounded-lg" loading="lazy">
+          <figcaption class="mt-4 px-2 text-neutral-400 leading-relaxed">
+            <span class="text-white font-semibold">AI compute moves in lockstep.</span> A synchronized 40% ramp is nothing on a strong grid and a real event on a weak one. Sweeping grid strength shows exactly where the interconnection stops being boring.
+          </figcaption>
+        </figure>
+
+        <figure class="card-quiet p-4 sm:p-6 reveal">
+          <img src="assets/study/pv_curves.png" alt="P-V nose curves by grid strength with the 200 MW operating point marked" class="w-full rounded-lg" loading="lazy">
+          <figcaption class="mt-4 px-2 text-neutral-400 leading-relaxed">
+            <span class="text-white font-semibold">And the hard limit.</span> Static voltage-stability nose curves by grid strength. At SCR 2 the nose sits below the 200 MW operating point — this facility does not belong on that feeder without support, and the study says so plainly.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 mt-16">
+        <div class="card-glass p-6 text-center reveal">
+          <p class="text-white font-semibold mb-1">The grid did its job</p>
+          <p class="text-neutral-400 text-sm">Every fault in the sequence cleared normally.</p>
+        </div>
+        <div class="card-glass p-6 text-center reveal" data-d="1">
+          <p class="text-white font-semibold mb-1">The load ended the story</p>
+          <p class="text-neutral-400 text-sm">Count-based lockout, exactly as documented in the real events.</p>
+        </div>
+        <div class="card-glass p-6 text-center reveal" data-d="2">
+          <p class="text-white font-semibold mb-1">The fix was a setting</p>
+          <p class="text-neutral-400 text-sm">Reset-on-recovery logic. No new equipment, no new iron.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="form" class="py-24 sm:py-32 panel">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-4 reveal">Now, about your project</h2>
+        <p class="text-lg text-neutral-400 reveal" data-d="1">This goes straight to the whole team. We reply with an honest read — even if the honest read is that you do not need us.</p>
+      </div>
+
+      <div id="sent-banner" class="hidden mb-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5 text-center">
+        <span class="cfg-chip">SENT</span>
+        <p class="text-neutral-200 mt-2">Got it — your project is in front of the team. Expect a reply within one business day.</p>
+      </div>
+
+      <div class="term-window reveal" data-d="1">
+        <div class="term-head">
+          <span class="term-dot" style="background:#f87171"></span>
+          <span class="term-dot" style="background:#fbbf24"></span>
+          <span class="term-dot" style="background:#34d399"></span>
+          <span class="mono text-xs text-neutral-500 ml-3">monegrid ~ % start a study</span>
+        </div>
+        <form action="https://formsubmit.co/founder@monegrid.com" method="POST" class="p-7 sm:p-10">
+          <input type="hidden" name="_cc" value="rjmonemi@gmail.com,ssmonemi@yahoo.com,Michaelsalama66@gmail.com,mquintana180@gmail.com">
+          <input type="hidden" name="_subject" value="New study inquiry — monegrid.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.monegrid.com/start.html?sent=1#form">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="f-name" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Name *</label>
+              <input id="f-name" name="name" type="text" required class="cfg-select" style="cursor:text" placeholder="your name">
+            </div>
+            <div>
+              <label for="f-company" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Company</label>
+              <input id="f-company" name="company" type="text" class="cfg-select" style="cursor:text" placeholder="company or project">
+            </div>
+            <div>
+              <label for="f-email" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Work email *</label>
+              <input id="f-email" name="email" type="email" required class="cfg-select" style="cursor:text" placeholder="you@company.com">
+            </div>
+            <div>
+              <label for="f-phone" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Phone</label>
+              <input id="f-phone" name="phone" type="tel" class="cfg-select" style="cursor:text" placeholder="optional">
+            </div>
+            <div>
+              <label for="f-study" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Study</label>
+              <div class="cfg-select-wrap">
+                <select id="f-study" name="study" class="cfg-select">
+                  <option>Arc-flash study</option>
+                  <option>Short-circuit &amp; coordination study</option>
+                  <option>Grid-interconnection study</option>
+                  <option>Ride-through compliance assessment</option>
+                  <option>SIGMA monitoring pilot</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="f-fac" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Facility</label>
+              <div class="cfg-select-wrap">
+                <select id="f-fac" name="facility" class="cfg-select">
+                  <option>Data center</option>
+                  <option>Solar, wind or storage site</option>
+                  <option>Industrial plant</option>
+                  <option>Hospital or campus</option>
+                  <option>Commercial building</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <label for="f-deadline" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Deadline, if you have one</label>
+            <input id="f-deadline" name="deadline" type="text" class="cfg-select" style="cursor:text" placeholder="e.g. energization in Q1, compliance date, overdue assessment">
+          </div>
+
+          <div class="mt-6">
+            <label for="f-details" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">The project, in your words</label>
+            <textarea id="f-details" name="details" rows="5" class="cfg-select" style="cursor:text; resize:vertical" placeholder="what you are building, where it stands, and what is blocking it"></textarea>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-center gap-5">
+            <button type="submit" class="btn-primary text-lg w-full sm:w-auto">Send it to the team <span aria-hidden="true">&rarr;</span></button>
+            <p class="mono text-xs text-neutral-500">or email <a href="mailto:founder@monegrid.com" class="text-neutral-300 hover:text-white transition-colors">founder@monegrid.com</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-14 border-t border-neutral-800/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg">
+            <span class="font-bold text-white tracking-tight">Monegrid</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Power system studies at AI speed — grid interconnection to facility compliance — plus SIGMA, our published predictive-reliability platform.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Services</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="services.html#grid" class="hover:text-white transition-colors">Interconnection studies</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Short-circuit &amp; coordination</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Arc-flash studies</a></li>
+            <li><a href="services.html#segments" class="hover:text-white transition-colors">Who we serve</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Company</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="sigma.html" class="hover:text-white transition-colors">SIGMA platform</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors">Published research</a></li>
+            <li><a href="team.html" class="hover:text-white transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Get in touch</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="mailto:founder@monegrid.com" class="hover:text-white transition-colors">founder@monegrid.com</a></li>
+            <li><a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+        <div>© <span id="year"></span> Monegrid · Southern California</div>
+        <div class="mono text-xs">Faster · Whole scope · Defensible</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.site-content -->
+
+  <script>
+    if (new URLSearchParams(location.search).get('sent') === '1') {
+      var b = document.getElementById('sent-banner');
+      if (b) b.classList.remove('hidden');
+    }
+  </script>
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
