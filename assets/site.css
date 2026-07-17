@@ -1,0 +1,176 @@
+/* Monegrid v2 design layer — shared across all pages */
+
+/* ---------- background canvas ---------- */
+#grid-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.site-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- type ---------- */
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.011em;
+}
+.display {
+  letter-spacing: -0.028em;
+  line-height: 1.04;
+}
+.mono {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0;
+}
+.gradient-text {
+  background: linear-gradient(120deg, #93c5fd 0%, #60a5fa 35%, #3b82f6 70%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 0.8, 0.23, 1),
+    transform 0.9s cubic-bezier(0.22, 0.8, 0.23, 1);
+  will-change: opacity, transform;
+}
+.reveal.on {
+  opacity: 1;
+  transform: none;
+}
+.reveal[data-d="1"] { transition-delay: 0.08s; }
+.reveal[data-d="2"] { transition-delay: 0.16s; }
+.reveal[data-d="3"] { transition-delay: 0.24s; }
+.reveal[data-d="4"] { transition-delay: 0.32s; }
+.reveal[data-d="5"] { transition-delay: 0.40s; }
+
+/* ---------- glass cards ---------- */
+.card-glass {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+.card-glass:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.10), 0 12px 40px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+}
+.card-quiet {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.25rem;
+}
+
+/* ---------- buttons ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.95rem 2.1rem;
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 10px 40px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  filter: brightness(1.06);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.95rem 2.1rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(96, 165, 250, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- nav ---------- */
+#site-nav {
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+  background: rgba(6, 8, 12, 0.0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+#site-nav.scrolled {
+  background: rgba(6, 8, 12, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* ---------- section dressing ---------- */
+.divider-glow {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.35) 35%, rgba(147, 197, 253, 0.6) 50%, rgba(96, 165, 250, 0.35) 65%, transparent);
+}
+.panel {
+  background: rgba(10, 13, 20, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.eyebrow {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  background: rgba(59, 130, 246, 0.08);
+  color: #93c5fd;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* stat numbers */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #ffffff 20%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html { scroll-behavior: smooth; }
+
+/* MathJax in dark cards (sigma/research) */
+mjx-container { color: #e5e7eb; }
+mjx-container[display="true"] { margin: 0 !important; overflow-x: auto; overflow-y: hidden; }
+
+/* scroll cue */
+@keyframes cue-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+.scroll-cue { animation: cue-bounce 2.2s ease-in-out infinite; }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-cue { animation: none; }
+  html { scroll-behavior: auto; }
+}

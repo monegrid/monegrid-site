@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIGMA — Predictive Reliability Platform | Monegrid</title>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta name="description" content="SIGMA is Monegrid's published, physics-informed predictive-reliability platform: real-time fault probability from power-quality signals, ~12 s early warning, 0.96 ROC AUC — validated on live laboratory data, no new hardware required." />
+  <meta name="theme-color" content="#06080c" />
+  <meta property="og:title" content="SIGMA — Predictive Reliability Platform | Monegrid" />
+  <meta property="og:description" content="SIGMA is Monegrid's published, physics-informed predictive-reliability platform: real-time fault probability from power-quality signals, ~12 s early warning, 0.96 ROC AUC — validated on live laboratory data, no new hardware required." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.monegrid.com/assets/images/logo.png" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 selection:bg-blue-500/20 selection:text-white antialiased">
+
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <div class="site-content">
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white tracking-tight text-lg">Monegrid</span>
+      </a>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="services.html" class="text-neutral-400 hover:text-white transition-colors">Services</a>
+        <a href="sigma.html" class="text-white font-semibold">SIGMA Platform</a>
+        <a href="research.html" class="text-neutral-400 hover:text-white transition-colors">Research</a>
+        <a href="team.html" class="text-neutral-400 hover:text-white transition-colors">Team</a>
+        <a href="contact.html" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/25">
+          Book a discovery call
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-neutral-300 hover:text-white" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-800/50 bg-neutral-950/95 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="services.html" class="text-neutral-300 hover:text-white">Services</a>
+      <a href="sigma.html" class="text-neutral-300 hover:text-white">SIGMA Platform</a>
+      <a href="research.html" class="text-neutral-300 hover:text-white">Research</a>
+      <a href="team.html" class="text-neutral-300 hover:text-white">Team</a>
+      <a href="contact.html" class="text-neutral-300 hover:text-white">Contact</a>
+      <a href="contact.html" class="text-blue-400 font-semibold">Book a discovery call</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(96,165,250,0.08),transparent_50%)]"></div>
+    <div class="max-w-5xl mx-auto px-6 pt-40 pb-16 sm:pt-44 sm:pb-20 relative z-10 text-center">
+      <div class="reveal on">
+        <span class="eyebrow">SIGMA · Smart Infrastructure Grid Monitoring AI</span>
+      </div>
+      <h1 class="display mt-8 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white reveal on" data-d="1">
+        See the fault<br><span class="gradient-text">before it happens</span>
+      </h1>
+      <p class="mt-8 text-lg sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed reveal on" data-d="2">
+        SIGMA is a physics-informed engine that computes a real-time fault probability from power-quality signals — <span class="text-white font-semibold">published, measured, and interpretable</span>, not a black box.
+      </p>
+      <div class="mt-8 inline-flex items-center px-5 py-3 rounded-2xl bg-neutral-900/70 border border-neutral-700 backdrop-blur-sm reveal on" data-d="3">
+        <span class="text-neutral-200 font-medium">Published at IEEE SoutheastCon 2026 · running on live laboratory data</span>
+      </div>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal on" data-d="4">
+        <a href="contact.html" class="btn-primary w-full sm:w-auto text-lg">Ask about a SIGMA pilot</a>
+        <a href="research.html" class="btn-ghost w-full sm:w-auto text-lg">Read the research</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-glow max-w-5xl mx-auto" />
+
+  <!-- What SIGMA does -->
+  <section id="capabilities" class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">What SIGMA does</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Four capabilities, one engine: SIGMA turns the power-quality data your system already produces into advance warning, health scoring, and maintenance foresight.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/15 border border-blue-600/30 mb-5">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Fault prediction</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">A calibrated fault probability, updated every sample — flagging incipient faults <span class="text-white font-semibold">~12 seconds before onset</span>, while there is still time to act.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/15 border border-blue-600/30 mb-5">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Anomaly detection</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">EWMA-based drift detection plus Isolation Forest multivariate scoring — catching abnormal behavior even when it does not match a known fault signature.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/15 border border-blue-600/30 mb-5">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Node Health Index</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">A composite 0–100 health score for every monitored node — one number that tells operators where the system is strong and where it is degrading.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="3">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/15 border border-blue-600/30 mb-5">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Remaining useful life</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Degradation-curve fitting estimates remaining useful life per asset — so maintenance is scheduled by evidence, not by calendar or by failure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Five power-quality features -->
+  <section id="features" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">The five power-quality features</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Incipient faults leave fingerprints in power quality long before a relay would trip. SIGMA watches five physically meaningful signals — each one chosen because grid physics says it matters.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="card-quiet p-5 reveal">
+          <div class="mono text-blue-400 text-lg mb-1">\(S_v\)</div>
+          <div class="text-white font-semibold text-sm mb-1">Voltage sag</div>
+          <p class="text-neutral-400 text-sm">Short RMS dips from arcing or partial shorts.</p>
+        </div>
+        <div class="card-quiet p-5 reveal">
+          <div class="mono text-blue-400 text-lg mb-1">\(T_h\)</div>
+          <div class="text-white font-semibold text-sm mb-1">Total harmonic distortion</div>
+          <p class="text-neutral-400 text-sm">Arcing injects nonlinear harmonics; THD rises sharply.</p>
+        </div>
+        <div class="card-quiet p-5 reveal" data-d="1">
+          <div class="mono text-blue-400 text-lg mb-1">\(P_f\)</div>
+          <div class="text-white font-semibold text-sm mb-1">Power-factor deviation</div>
+          <p class="text-neutral-400 text-sm">Arc or insulation faults shift the V–I phase angle.</p>
+        </div>
+        <div class="card-quiet p-5 reveal" data-d="2">
+          <div class="mono text-blue-400 text-lg mb-1">\(\dot V\)</div>
+          <div class="text-white font-semibold text-sm mb-1">Rate of change of voltage</div>
+          <p class="text-neutral-400 text-sm">Highlights abrupt sags and recoveries.</p>
+        </div>
+        <div class="card-quiet p-5 reveal" data-d="3">
+          <div class="mono text-blue-400 text-lg mb-1">\(\dot I\)</div>
+          <div class="text-white font-semibold text-sm mb-1">Rate of change of current</div>
+          <p class="text-neutral-400 text-sm">Captures the current spikes typical of arc ignition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">How it works</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          A real-time pipeline from sensing through inference to alerting — every stage inspectable, every output explainable.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-neutral-950 border border-neutral-800 p-6 sm:p-8 mb-12 reveal overflow-x-auto">
+        <div class="mono text-sm sm:text-base text-neutral-300 flex items-center gap-3 whitespace-nowrap">
+          <span class="px-3 py-2 rounded-lg bg-blue-600/15 text-blue-300 border border-blue-600/30">sensors + digital twin</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-neutral-800 text-neutral-200 border border-neutral-700">feature extraction</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-purple-600/15 text-purple-300 border border-purple-600/30">logistic + Kalman</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-amber-600/15 text-amber-300 border border-amber-600/30">state machine</span>
+          <span class="text-neutral-600">→</span>
+          <span class="px-3 py-2 rounded-lg bg-green-600/15 text-green-300 border border-green-600/30">API + alerts</span>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="card-glass p-8 reveal">
+          <h3 class="text-xl font-bold text-white mb-2">The fault-probability model</h3>
+          <p class="text-neutral-400 mb-5">An interpretable logistic core maps the five features to a calibrated fault probability \(p(t)\) over sliding windows, on every sample.</p>
+          <div class="rounded-xl bg-neutral-950 border border-neutral-800 p-5 text-sm">
+            $$p(t)=\sigma\!\big(\beta_0+\beta_1 S_v+\beta_2 T_h+\beta_3 P_f+\beta_4 \dot V+\beta_5 \dot I\big)$$
+          </div>
+          <p class="text-neutral-400 mt-4 text-sm">Coefficients are constrained \(\beta_i \ge 0\) to enforce monotonicity: worse power quality can only mean higher fault risk. An optional extended Kalman filter preprocesses the signals, modeling nominal behavior so that deviations stand out and noise is suppressed. Every coefficient is a number an engineer can read and defend.</p>
+        </div>
+
+        <div class="card-glass p-8 reveal" data-d="1">
+          <h3 class="text-xl font-bold text-white mb-2">The operating states</h3>
+          <p class="text-neutral-400 mb-5">The probability stream drives a four-state machine that turns a continuous risk signal into unambiguous operator actions.</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-emerald-600/15 text-emerald-300 border border-emerald-600/30 mono text-sm">NORMAL</span>
+            <span class="px-4 py-2 rounded-lg bg-amber-600/15 text-amber-300 border border-amber-600/30 mono text-sm">AHEAD</span>
+            <span class="px-4 py-2 rounded-lg bg-red-600/15 text-red-300 border border-red-600/30 mono text-sm">FAULT</span>
+            <span class="px-4 py-2 rounded-lg bg-blue-600/15 text-blue-300 border border-blue-600/30 mono text-sm">RECOVERY</span>
+          </div>
+          <p class="text-neutral-400 mt-5 text-sm">Because the model is grounded in physics, the probability rises smoothly in anticipation of a fault rather than spiking only after it occurs — the AHEAD state is the early warning. Full thresholds, training formulation, and Kalman residual math are on the <a href="research.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors">research page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Measured results -->
+  <section id="results" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Measured results</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          These are instrumented numbers, not projections — measured on a 12&nbsp;V DC microgrid testbed and Pandapower digital-twin simulations under leave-one-run-out cross-validation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        <div class="card-quiet p-7 text-center reveal">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="12" data-prefix="~" data-suffix=" s">~12 s</div>
+          <p class="text-neutral-400 text-sm">lead time before fault onset</p>
+        </div>
+        <div class="card-quiet p-7 text-center reveal" data-d="1">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="93" data-prefix="&gt;" data-suffix="%">&gt;93%</div>
+          <p class="text-neutral-400 text-sm">average detection rate</p>
+        </div>
+        <div class="card-quiet p-7 text-center reveal" data-d="2">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="0.96">0.96</div>
+          <p class="text-neutral-400 text-sm">ROC AUC</p>
+        </div>
+        <div class="card-quiet p-7 text-center reveal" data-d="3">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="5" data-prefix="&lt;" data-suffix=" ms">&lt;5 ms</div>
+          <p class="text-neutral-400 text-sm">inference per window</p>
+        </div>
+      </div>
+
+      <div class="card-glass overflow-hidden reveal">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="border-b border-neutral-700 text-neutral-400 text-sm uppercase tracking-wider">
+                <th class="px-6 py-4 font-semibold">Fault type</th>
+                <th class="px-6 py-4 font-semibold">Lead time (s)</th>
+                <th class="px-6 py-4 font-semibold">Detection (%)</th>
+                <th class="px-6 py-4 font-semibold">False alarms (/h)</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-200">
+              <tr class="border-b border-neutral-800">
+                <td class="px-6 py-4">Voltage sag</td>
+                <td class="px-6 py-4 mono">12.4</td>
+                <td class="px-6 py-4 mono text-emerald-400">95</td>
+                <td class="px-6 py-4 mono">0.09</td>
+              </tr>
+              <tr class="border-b border-neutral-800">
+                <td class="px-6 py-4">Overload</td>
+                <td class="px-6 py-4 mono">11.8</td>
+                <td class="px-6 py-4 mono text-emerald-400">92</td>
+                <td class="px-6 py-4 mono">0.10</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Line-to-line / line-to-ground</td>
+                <td class="px-6 py-4 mono">13.1</td>
+                <td class="px-6 py-4 mono text-emerald-400">94</td>
+                <td class="px-6 py-4 mono">0.08</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 reveal">
+        <p class="text-neutral-400">Kalman residual preprocessing cut the false-alarm rate by roughly 50% — and the probability output rose smoothly in anticipation of each event. Prognostic, not reactive.</p>
+        <a href="research.html" class="shrink-0 inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+          Full methodology
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deployment & integration -->
+  <section id="deployment" class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Deployment &amp; integration</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          SIGMA rides on the measurements your system already takes. No rip-and-replace, no proprietary sensors — it routes into the monitoring you have.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-glass p-8 reveal">
+          <h3 class="text-lg font-bold text-white mb-3">Serving stack</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed mb-4">Python, FastAPI, and TimescaleDB with operator dashboards — a lightweight service that ingests telemetry and streams probabilities, health scores, and alerts.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">Python</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">FastAPI</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">TimescaleDB</span>
+            <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">dashboards</span>
+          </div>
+        </div>
+        <div class="card-glass p-8 reveal" data-d="1">
+          <h3 class="text-lg font-bold text-white mb-3">Fits your existing stack</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Outputs route directly into existing monitoring and SCADA systems. SIGMA consumes power-quality signals your infrastructure already measures — <span class="text-white font-semibold">no new hardware required</span>.</p>
+        </div>
+        <div class="card-glass p-8 reveal" data-d="2">
+          <h3 class="text-lg font-bold text-white mb-3">Validation status</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed mb-4">System prototype demonstrated in a relevant environment — running on live data at the Cal Poly Pomona Smart Grid Laboratory. Municipal pilot discussions are underway in Southern California.</p>
+          <span class="inline-block px-3 py-1 rounded-full bg-emerald-600/15 border border-emerald-600/30 text-emerald-300 text-xs mono">prototype · live lab data</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Where SIGMA goes next</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          The published core is the foundation. The roadmap scales it up — and points it at the loads where a missed fault costs the most.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-glass p-8 reveal">
+          <div class="mono text-blue-400 text-sm mb-3">01</div>
+          <h3 class="text-lg font-bold text-white mb-2">Ensemble &amp; adaptive learning</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Ensemble models with adaptive online learning — recursive Bayesian updating — for robustness as operating conditions drift.</p>
+        </div>
+        <div class="card-glass p-8 reveal" data-d="1">
+          <div class="mono text-blue-400 text-sm mb-3">02</div>
+          <h3 class="text-lg font-bold text-white mb-2">Distributed multi-node</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">A distributed implementation for multi-node, grid-scale microgrids — health and fault probability across the whole network, not one feeder.</p>
+        </div>
+        <div class="card-glass p-8 reveal" data-d="2">
+          <div class="mono text-blue-400 text-sm mb-3">03</div>
+          <h3 class="text-lg font-bold text-white mb-2">AI data centers &amp; industry</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Extension to AI data centers and industrial facilities, where nonlinear loads are heaviest and the cost of a missed fault is highest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-blue-900/30 via-neutral-900/80 to-neutral-900/80 border border-blue-600/30 p-10 md:p-16 text-center relative overflow-hidden reveal">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08),transparent_70%)]"></div>
+        <div class="relative z-10">
+          <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-4">Ask about a SIGMA pilot</h2>
+          <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+            If you operate a microgrid, campus, or critical facility and want predictive reliability on the data you already collect, let's talk about what a pilot looks like.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="contact.html" class="btn-primary w-full sm:w-auto text-lg">Start the conversation</a>
+            <a href="assets/SIGMA-Monemi.pdf" target="_blank" rel="noopener" class="btn-ghost w-full sm:w-auto text-lg">Read the paper (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-14 border-t border-neutral-800/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg">
+            <span class="font-bold text-white tracking-tight">Monegrid</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Power system studies at AI speed — grid interconnection to facility compliance — plus SIGMA, our published predictive-reliability platform.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Services</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="services.html#grid" class="hover:text-white transition-colors">Interconnection &amp; EMT studies</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Short-circuit &amp; coordination</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Arc-flash studies</a></li>
+            <li><a href="services.html#segments" class="hover:text-white transition-colors">Who we serve</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Company</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="sigma.html" class="hover:text-white transition-colors">SIGMA platform</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors">Published research</a></li>
+            <li><a href="team.html" class="hover:text-white transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Get in touch</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="mailto:founder@monegrid.com" class="hover:text-white transition-colors">founder@monegrid.com</a></li>
+            <li><a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+        <div>© <span id="year"></span> Monegrid · Southern California</div>
+        <div class="mono text-xs">Faster · Whole scope · Defensible</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.site-content -->
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

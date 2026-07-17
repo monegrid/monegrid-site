@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research — SIGMA at IEEE SoutheastCon 2026 | Monegrid</title>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta name="description" content="SIGMA: A Physics-Informed AI Framework for Predictive Fault Probability Modeling in Microgrids — published at IEEE SoutheastCon 2026. The method, the measured results, and the validation environment behind every number Monegrid cites." />
+  <meta name="theme-color" content="#06080c" />
+  <meta property="og:title" content="Research — SIGMA at IEEE SoutheastCon 2026 | Monegrid" />
+  <meta property="og:description" content="SIGMA: A Physics-Informed AI Framework for Predictive Fault Probability Modeling in Microgrids — published at IEEE SoutheastCon 2026. The method, the measured results, and the validation environment behind every number Monegrid cites." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.monegrid.com/assets/images/logo.png" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 selection:bg-blue-500/20 selection:text-white antialiased">
+
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <div class="site-content">
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white tracking-tight text-lg">Monegrid</span>
+      </a>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="services.html" class="text-neutral-400 hover:text-white transition-colors">Services</a>
+        <a href="sigma.html" class="text-neutral-400 hover:text-white transition-colors">SIGMA Platform</a>
+        <a href="research.html" class="text-white font-semibold">Research</a>
+        <a href="team.html" class="text-neutral-400 hover:text-white transition-colors">Team</a>
+        <a href="contact.html" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/25">
+          Book a discovery call
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-neutral-300 hover:text-white" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-800/50 bg-neutral-950/95 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="services.html" class="text-neutral-300 hover:text-white">Services</a>
+      <a href="sigma.html" class="text-neutral-300 hover:text-white">SIGMA Platform</a>
+      <a href="research.html" class="text-neutral-300 hover:text-white">Research</a>
+      <a href="team.html" class="text-neutral-300 hover:text-white">Team</a>
+      <a href="contact.html" class="text-neutral-300 hover:text-white">Contact</a>
+      <a href="contact.html" class="text-blue-400 font-semibold">Book a discovery call</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.14),transparent_55%)]"></div>
+    <div class="max-w-5xl mx-auto px-6 pt-40 pb-16 sm:pt-44 sm:pb-20 relative z-10 text-center">
+      <div class="reveal on">
+        <span class="eyebrow">SIGMA · IEEE SoutheastCon 2026</span>
+      </div>
+      <h1 class="display mt-8 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white reveal on" data-d="1">
+        Published research
+      </h1>
+      <p class="mt-6 text-lg sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed reveal on" data-d="2">
+        Our claims trace to a published paper and measured experiments. The model, the math, and the numbers are on this page — and in the PDF.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal on" data-d="3">
+        <a href="assets/SIGMA-Monemi.pdf" target="_blank" rel="noopener" class="btn-primary w-full sm:w-auto text-lg">Read the paper (PDF)</a>
+        <a href="#method" class="btn-ghost w-full sm:w-auto text-lg">See the method</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-glow max-w-5xl mx-auto" />
+
+  <!-- Paper card -->
+  <section id="paper" class="py-24 sm:py-32 panel">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">The paper</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Peer-reviewed and published at IEEE SoutheastCon 2026.
+        </p>
+      </div>
+      <div class="card-glass p-8 sm:p-10 reveal">
+        <div class="text-blue-400 font-semibold mono text-sm mb-3">PHYSICS-INFORMED AI · RELIABILITY MODELING</div>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
+          SIGMA: A Physics-Informed AI Framework for Predictive Fault Probability Modeling in Microgrids
+        </h3>
+        <p class="text-neutral-400 mb-6">R. Monemi and S. Monemi · IEEE SoutheastCon 2026</p>
+        <p class="text-neutral-300 leading-relaxed mb-8">
+          SIGMA (Smart Infrastructure Grid Monitoring AI) computes a real-time fault probability from power-quality features using an interpretable logistic core and sliding windows, with an optional Kalman filter for noise rejection. The approach bridges classical reliability analysis and modern AI-based predictive maintenance — probabilistic learning grounded in the physics of how faults actually develop.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">smart grids</span>
+          <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">fault prediction</span>
+          <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">physics-informed AI</span>
+          <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">Pandapower</span>
+          <span class="px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs mono">reliability modeling</span>
+        </div>
+        <a href="assets/SIGMA-Monemi.pdf" target="_blank" rel="noopener" class="btn-primary text-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Read the paper (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section id="method" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">The method</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          SIGMA sits between deterministic observers and opaque deep nets: a lightweight, interpretable logistic model over five power-quality signals — voltage sag, total harmonic distortion, power-factor deviation, \(\dot V\), and \(\dot I\) — merging measurable physical indicators with probabilistic learning.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="card-glass p-8 reveal">
+          <h3 class="text-xl font-bold text-white mb-2">Fault-probability model</h3>
+          <p class="text-neutral-400 mb-5">A logistic core maps the feature vector to a calibrated fault probability \(p(t)\) every sample.</p>
+          <div class="rounded-xl bg-neutral-950 border border-neutral-800 p-5 text-sm">
+            $$p(t)=\sigma\!\big(\beta_0+\beta_1 S_v+\beta_2 T_h+\beta_3 P_f+\beta_4 \dot V+\beta_5 \dot I\big)$$
+            $$\sigma(z)=\frac{1}{1+e^{-z}}$$
+          </div>
+          <p class="text-neutral-400 mt-4 text-sm">Coefficients are constrained \(\beta_i \ge 0\) to enforce monotonicity: worse power quality always implies higher fault risk.</p>
+        </div>
+
+        <div class="card-glass p-8 reveal" data-d="1">
+          <h3 class="text-xl font-bold text-white mb-2">Regularized training</h3>
+          <p class="text-neutral-400 mb-5">Parameters are learned by \(\ell_2\)-regularized maximum likelihood over labeled windows.</p>
+          <div class="rounded-xl bg-neutral-950 border border-neutral-800 p-5 text-sm">
+            $$\min_{\beta_0,\,\boldsymbol{\beta}\ge 0}\; -\sum_t\big[y_t\ln p_t+(1-y_t)\ln(1-p_t)\big]+\lambda\lVert\boldsymbol{\beta}\rVert_2^2$$
+          </div>
+          <p class="text-neutral-400 mt-4 text-sm">A sliding window updates \(p(t)\) on every sample for continuous, online estimation.</p>
+        </div>
+
+        <div class="card-glass p-8 reveal">
+          <h3 class="text-xl font-bold text-white mb-2">State machine</h3>
+          <p class="text-neutral-400 mb-5">The probability stream is classified into operating states that drive alerting.</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-emerald-600/15 text-emerald-300 border border-emerald-600/30 mono text-sm">NORMAL · \(p<0.45\)</span>
+            <span class="px-4 py-2 rounded-lg bg-amber-600/15 text-amber-300 border border-amber-600/30 mono text-sm">AHEAD · \(0.45\le p<0.85\)</span>
+            <span class="px-4 py-2 rounded-lg bg-red-600/15 text-red-300 border border-red-600/30 mono text-sm">FAULT · \(p\ge 0.85\)</span>
+            <span class="px-4 py-2 rounded-lg bg-blue-600/15 text-blue-300 border border-blue-600/30 mono text-sm">RECOVERY</span>
+          </div>
+          <p class="text-neutral-400 mt-5 text-sm">Probability rises smoothly in anticipation of a fault rather than spiking only after it occurs.</p>
+        </div>
+
+        <div class="card-glass p-8 reveal" data-d="1">
+          <h3 class="text-xl font-bold text-white mb-2">Kalman residual preprocessing</h3>
+          <p class="text-neutral-400 mb-5">An optional extended Kalman filter models nominal feeder behavior; residuals emphasize deviations and suppress noise.</p>
+          <div class="rounded-xl bg-neutral-950 border border-neutral-800 p-5 text-sm">
+            $$x_{k+1}=A x_k+B u_k,\qquad y_k=C x_k$$
+            $$r_k=y_k-\hat y_k$$
+          </div>
+          <p class="text-neutral-400 mt-4 text-sm">Residual filtering cut the false-alarm rate by roughly half in testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Measured results -->
+  <section id="results" class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">Measured results</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          On a 12&nbsp;V DC microgrid testbed and Pandapower digital-twin simulations, leave-one-run-out cross-validation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        <div class="card-quiet p-7 text-center reveal">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="12" data-prefix="~" data-suffix=" s">~12 s</div>
+          <p class="text-neutral-400 text-sm">lead time before onset</p>
+        </div>
+        <div class="card-quiet p-7 text-center reveal" data-d="1">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="93" data-prefix="&gt;" data-suffix="%">&gt;93%</div>
+          <p class="text-neutral-400 text-sm">average detection rate</p>
+        </div>
+        <div class="card-quiet p-7 text-center reveal" data-d="2">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="0.96">0.96</div>
+          <p class="text-neutral-400 text-sm">ROC AUC</p>
+        </div>
+        <div class="card-quiet p-7 text-center reveal" data-d="3">
+          <div class="stat-number text-4xl sm:text-5xl font-black mb-2" data-count="5" data-prefix="&lt;" data-suffix=" ms">&lt;5 ms</div>
+          <p class="text-neutral-400 text-sm">inference per window</p>
+        </div>
+      </div>
+
+      <div class="card-quiet overflow-hidden reveal">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="border-b border-neutral-700 text-neutral-400 text-sm uppercase tracking-wider">
+                <th class="px-6 py-4 font-semibold">Fault type</th>
+                <th class="px-6 py-4 font-semibold">Lead time (s)</th>
+                <th class="px-6 py-4 font-semibold">Detection (%)</th>
+                <th class="px-6 py-4 font-semibold">False alarms (/h)</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-200">
+              <tr class="border-b border-neutral-800">
+                <td class="px-6 py-4">Voltage sag</td>
+                <td class="px-6 py-4 mono">12.4</td>
+                <td class="px-6 py-4 mono text-emerald-400">95</td>
+                <td class="px-6 py-4 mono">0.09</td>
+              </tr>
+              <tr class="border-b border-neutral-800">
+                <td class="px-6 py-4">Overload</td>
+                <td class="px-6 py-4 mono">11.8</td>
+                <td class="px-6 py-4 mono text-emerald-400">92</td>
+                <td class="px-6 py-4 mono">0.10</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Line-to-line / line-to-ground</td>
+                <td class="px-6 py-4 mono">13.1</td>
+                <td class="px-6 py-4 mono text-emerald-400">94</td>
+                <td class="px-6 py-4 mono">0.08</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="text-neutral-400 mt-6 reveal">Kalman preprocessing reduced the false-alarm rate by roughly 50%, and probability output rose smoothly in anticipation of each event — prognostic, not reactive.</p>
+    </div>
+  </section>
+
+  <!-- Validation environment -->
+  <section id="validation" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">Validation environment</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          The published results were measured on a physical 12&nbsp;V DC testbed and a Pandapower digital twin — not one convenient dataset.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-sm mb-3">HARDWARE</div>
+          <h3 class="text-lg font-bold text-white mb-3">12 V DC microgrid testbed</h3>
+          <p class="text-neutral-400 text-sm">A physical testbed instrumented with Arduino + INA226 sensing at 1&nbsp;Hz, streaming live voltage, current, power-factor, and harmonic measurements into the model.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-sm mb-3">SIMULATION</div>
+          <h3 class="text-lg font-bold text-white mb-3">Pandapower digital twin</h3>
+          <p class="text-neutral-400 text-sm">A Pandapower digital twin generates labeled fault runs — line-to-line, line-to-ground, overload, and harmonic distortion — for controlled, repeatable training and evaluation.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-blue-400 text-sm mb-3">LIVE DATA</div>
+          <h3 class="text-lg font-bold text-white mb-3">Cal Poly Pomona Smart Grid Laboratory</h3>
+          <p class="text-neutral-400 text-sm">Beyond the published experiments, SIGMA runs on live data at the Cal Poly Pomona Smart Grid Laboratory, where the system prototype has been demonstrated in a relevant environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- From research to practice -->
+  <section id="practice" class="py-24 sm:py-32 panel">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">From research to practice</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          The same rigor runs through our commercial studies. Acceptance criteria agreed up front. Results that are auditable line by line. No black boxes — every number on a Monegrid deliverable can be traced, checked, and defended.
+        </p>
+      </div>
+      <div class="text-center reveal" data-d="2">
+        <a href="services.html" class="btn-ghost text-lg">
+          See our study services
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-blue-900/30 via-neutral-900/80 to-neutral-900/80 border border-blue-600/30 p-10 md:p-16 text-center relative overflow-hidden reveal">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08),transparent_70%)]"></div>
+        <div class="relative z-10">
+          <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-4">Talk to the authors</h2>
+          <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+            If you work on microgrids, power-system protection, or data-center power and want to discuss SIGMA — or put its rigor to work on your studies — reach out directly.
+          </p>
+          <a href="contact.html" class="btn-primary text-xl px-10 py-5">Book a discovery call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-14 border-t border-neutral-800/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg">
+            <span class="font-bold text-white tracking-tight">Monegrid</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Power system studies at AI speed — grid interconnection to facility compliance — plus SIGMA, our published predictive-reliability platform.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Services</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="services.html#grid" class="hover:text-white transition-colors">Interconnection &amp; EMT studies</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Short-circuit &amp; coordination</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Arc-flash studies</a></li>
+            <li><a href="services.html#segments" class="hover:text-white transition-colors">Who we serve</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Company</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="sigma.html" class="hover:text-white transition-colors">SIGMA platform</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors">Published research</a></li>
+            <li><a href="team.html" class="hover:text-white transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Get in touch</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="mailto:founder@monegrid.com" class="hover:text-white transition-colors">founder@monegrid.com</a></li>
+            <li><a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+        <div>© <span id="year"></span> Monegrid · Southern California</div>
+        <div class="mono text-xs">Faster · Whole scope · Defensible</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.site-content -->
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Book a Discovery Call | Monegrid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta name="description" content="Book a 15-minute discovery call with Monegrid. Interconnection &amp; EMT studies in PSCAD, plus facility short-circuit, coordination &amp; arc-flash studies in SKM / ETAP. Tell us your deadline — we will tell you honestly whether we can help." />
+  <meta name="theme-color" content="#06080c" />
+  <meta property="og:title" content="Contact — Book a Discovery Call | Monegrid" />
+  <meta property="og:description" content="Book a 15-minute discovery call with Monegrid. Interconnection &amp; EMT studies in PSCAD, plus facility short-circuit, coordination &amp; arc-flash studies in SKM / ETAP. Tell us your deadline — we will tell you honestly whether we can help." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.monegrid.com/assets/images/logo.png" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 selection:bg-blue-500/20 selection:text-white antialiased">
+
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <div class="site-content">
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white tracking-tight text-lg">Monegrid</span>
+      </a>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="services.html" class="text-neutral-400 hover:text-white transition-colors">Services</a>
+        <a href="sigma.html" class="text-neutral-400 hover:text-white transition-colors">SIGMA Platform</a>
+        <a href="research.html" class="text-neutral-400 hover:text-white transition-colors">Research</a>
+        <a href="team.html" class="text-neutral-400 hover:text-white transition-colors">Team</a>
+        <a href="contact.html" class="text-white font-semibold">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/25">
+          Book a discovery call
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-neutral-300 hover:text-white" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-800/50 bg-neutral-950/95 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="services.html" class="text-neutral-300 hover:text-white">Services</a>
+      <a href="sigma.html" class="text-neutral-300 hover:text-white">SIGMA Platform</a>
+      <a href="research.html" class="text-neutral-300 hover:text-white">Research</a>
+      <a href="team.html" class="text-neutral-300 hover:text-white">Team</a>
+      <a href="contact.html" class="text-neutral-300 hover:text-white">Contact</a>
+      <a href="contact.html" class="text-blue-400 font-semibold">Book a discovery call</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.14),transparent_55%)]"></div>
+    <div class="max-w-4xl mx-auto px-6 pt-40 pb-16 sm:pt-44 sm:pb-20 relative z-10 text-center">
+      <div class="reveal on">
+        <span class="eyebrow">contact · no forms, no gatekeeping</span>
+      </div>
+      <h1 class="display mt-8 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white reveal on" data-d="1">
+        Book a <span class="gradient-text">discovery call</span>
+      </h1>
+      <p class="mt-6 text-xl sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed reveal on" data-d="2">
+        Fifteen minutes, mostly listening. Tell us your deadline and your study backlog, and we will tell you honestly whether we can help.
+      </p>
+    </div>
+  </section>
+
+  <!-- Two mailto cards -->
+  <section class="pt-4 pb-24 sm:pb-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Grid line card -->
+        <div class="card-glass p-8 sm:p-10 flex flex-col reveal">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/15 border border-blue-600/30 mb-5">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="mono text-blue-400 text-xs uppercase tracking-wider mb-2">Grid line · in front of the meter</div>
+          <h2 class="display text-2xl font-bold text-white mb-3">Interconnection &amp; EMT studies</h2>
+          <p class="text-neutral-400 leading-relaxed mb-6">
+            PRC-029-1 ride-through compliance, interconnection queue studies, and OEM model validation — EMT studies in PSCAD, engineered for PE review and grid-operator acceptance.
+          </p>
+          <div class="mono text-amber-300/90 text-xs mb-8">PRC-029-1 BES deadline · Oct 1, 2026</div>
+          <a href="mailto:founder@monegrid.com?subject=EMT%20%2F%20interconnection%20study%20inquiry" class="btn-primary mt-auto">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            Email about an EMT study
+          </a>
+        </div>
+
+        <!-- Facility line card -->
+        <div class="card-glass p-8 sm:p-10 flex flex-col reveal" data-d="1">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600/15 border border-blue-600/30 mb-5">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+          </div>
+          <div class="mono text-blue-400 text-xs uppercase tracking-wider mb-2">Facility line · behind the meter</div>
+          <h2 class="display text-2xl font-bold text-white mb-3">Short-circuit, coordination &amp; arc-flash</h2>
+          <p class="text-neutral-400 leading-relaxed mb-6">
+            Facility power studies in SKM / ETAP for data centers, industrial plants, hospitals, and campuses — the recurring studies OSHA, NFPA 70E, and NEC 110.24 already require.
+          </p>
+          <div class="mono text-amber-300/90 text-xs mb-8">NFPA 70E · reviewed at least every 5 years</div>
+          <a href="mailto:founder@monegrid.com?subject=Facility%20power%20study%20inquiry" class="btn-primary mt-auto">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            Email about a facility study
+          </a>
+        </div>
+
+      </div>
+      <p class="text-center text-neutral-500 text-sm mt-6 reveal" data-d="2">
+        Not sure which line you need? Data centers usually need both. Send either — we will sort it out on the call.
+      </p>
+    </div>
+  </section>
+
+  <!-- What happens next -->
+  <section class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">What happens next</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Three steps from first email to a deliverable you can audit line by line. No open-ended engagements, no black boxes.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-glass p-8 reveal">
+          <div class="mono text-blue-400 text-sm mb-4">01</div>
+          <h3 class="text-xl font-bold text-white mb-3">15-minute discovery call</h3>
+          <p class="text-neutral-400 leading-relaxed">
+            Mostly listening: your deadline, your queue position, your study backlog. If we are not the right fit, we say so on the call — not after a month of scoping.
+          </p>
+        </div>
+        <div class="card-glass p-8 reveal" data-d="1">
+          <div class="mono text-blue-400 text-sm mb-4">02</div>
+          <h3 class="text-xl font-bold text-white mb-3">Scoped, fixed proposal</h3>
+          <p class="text-neutral-400 leading-relaxed">
+            A clearly bounded scope of work with deliverables, assumptions, and timeline named up front — so you know exactly what you are getting before you commit to anything.
+          </p>
+        </div>
+        <div class="card-glass p-8 reveal" data-d="2">
+          <div class="mono text-blue-400 text-sm mb-4">03</div>
+          <h3 class="text-xl font-bold text-white mb-3">A pilot study you can judge us on</h3>
+          <p class="text-neutral-400 leading-relaxed">
+            Start with one study. Every assumption, setting, and result is auditable line by line — structured for licensed-engineer review. Decide on evidence, not promises.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who should reach out -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Who should reach out</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          If you own, build, or maintain power infrastructure with a study standing between you and a deadline, that is us.
+        </p>
+      </div>
+      <ul class="space-y-3 reveal" data-d="2">
+        <li class="flex items-start gap-4 card-quiet px-6 py-4">
+          <svg class="w-5 h-5 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span class="text-neutral-300"><span class="text-white font-semibold">IBR fleet operators</span> — solar, wind, and storage owner-operators facing PRC-029-1 ride-through deadlines.</span>
+        </li>
+        <li class="flex items-start gap-4 card-quiet px-6 py-4">
+          <svg class="w-5 h-5 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span class="text-neutral-300"><span class="text-white font-semibold">Data-center &amp; mission-critical facility teams</span> — EMT studies to connect, arc-flash and coordination for your own gear.</span>
+        </li>
+        <li class="flex items-start gap-4 card-quiet px-6 py-4">
+          <svg class="w-5 h-5 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span class="text-neutral-300"><span class="text-white font-semibold">EPC &amp; MEP electrical design firms</span> — overflow and white-label studies capacity when your bench is full.</span>
+        </li>
+        <li class="flex items-start gap-4 card-quiet px-6 py-4">
+          <svg class="w-5 h-5 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span class="text-neutral-300"><span class="text-white font-semibold">Developers in the interconnection queue</span> — projects waiting on studies that decide whether they ever energize.</span>
+        </li>
+        <li class="flex items-start gap-4 card-quiet px-6 py-4">
+          <svg class="w-5 h-5 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span class="text-neutral-300"><span class="text-white font-semibold">Industrial &amp; commercial facility owners</span> — recurring NFPA 70E and NEC compliance studies, on a schedule you can plan around.</span>
+        </li>
+        <li class="flex items-start gap-4 card-quiet px-6 py-4">
+          <svg class="w-5 h-5 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span class="text-neutral-300"><span class="text-white font-semibold">Inverter &amp; turbine OEMs</span> — PSCAD model validation ahead of FERC Order 2023 requirements.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Direct contact -->
+  <section class="py-24 sm:py-32 panel">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-blue-900/30 via-neutral-900/80 to-neutral-900/80 border border-blue-600/30 p-10 md:p-14 text-center relative overflow-hidden reveal">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08),transparent_70%)]"></div>
+        <div class="relative z-10">
+          <h2 class="display text-3xl sm:text-4xl font-extrabold text-white mb-4">Prefer to skip the cards?</h2>
+          <p class="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto">
+            Write to us directly. A plain email with your project and your deadline is all it takes.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+            <a href="mailto:founder@monegrid.com" class="inline-flex items-center gap-2.5 text-white font-semibold hover:text-blue-400 transition-colors">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              founder@monegrid.com
+            </a>
+            <a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-white font-semibold hover:text-blue-400 transition-colors">
+              <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              @monegrid
+            </a>
+            <span class="inline-flex items-center gap-2.5 text-neutral-300 font-medium">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              Southern California
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-14 border-t border-neutral-800/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg">
+            <span class="font-bold text-white tracking-tight">Monegrid</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Power system studies at AI speed — grid interconnection to facility compliance — plus SIGMA, our published predictive-reliability platform.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Services</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="services.html#grid" class="hover:text-white transition-colors">Interconnection &amp; EMT studies</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Short-circuit &amp; coordination</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Arc-flash studies</a></li>
+            <li><a href="services.html#segments" class="hover:text-white transition-colors">Who we serve</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Company</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="sigma.html" class="hover:text-white transition-colors">SIGMA platform</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors">Published research</a></li>
+            <li><a href="team.html" class="hover:text-white transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Get in touch</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="mailto:founder@monegrid.com" class="hover:text-white transition-colors">founder@monegrid.com</a></li>
+            <li><a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+        <div>© <span id="year"></span> Monegrid · Southern California</div>
+        <div class="mono text-xs">Faster · Whole scope · Defensible</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.site-content -->
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

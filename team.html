@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team — Monegrid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta name="description" content="Meet the Monegrid team — a father-son research team behind the published SIGMA platform, now a commercial power-systems firm with the operators to serve clients end to end." />
+  <meta name="theme-color" content="#06080c" />
+  <meta property="og:title" content="Team — Monegrid" />
+  <meta property="og:description" content="Meet the Monegrid team — a father-son research team behind the published SIGMA platform, now a commercial power-systems firm with the operators to serve clients end to end." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.monegrid.com/assets/images/logo.png" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 selection:bg-blue-500/20 selection:text-white antialiased">
+
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <div class="site-content">
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white tracking-tight text-lg">Monegrid</span>
+      </a>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="services.html" class="text-neutral-400 hover:text-white transition-colors">Services</a>
+        <a href="sigma.html" class="text-neutral-400 hover:text-white transition-colors">SIGMA Platform</a>
+        <a href="research.html" class="text-neutral-400 hover:text-white transition-colors">Research</a>
+        <a href="team.html" class="text-white font-semibold">Team</a>
+        <a href="contact.html" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/25">
+          Book a discovery call
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-neutral-300 hover:text-white" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-800/50 bg-neutral-950/95 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="services.html" class="text-neutral-300 hover:text-white">Services</a>
+      <a href="sigma.html" class="text-neutral-300 hover:text-white">SIGMA Platform</a>
+      <a href="research.html" class="text-neutral-300 hover:text-white">Research</a>
+      <a href="team.html" class="text-neutral-300 hover:text-white">Team</a>
+      <a href="contact.html" class="text-neutral-300 hover:text-white">Contact</a>
+      <a href="contact.html" class="text-blue-400 font-semibold">Book a discovery call</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.14),transparent_55%)]"></div>
+    <div class="max-w-5xl mx-auto px-6 pt-40 pb-16 sm:pt-44 sm:pb-20 relative z-10 text-center">
+      <div class="reveal on">
+        <span class="eyebrow">The team</span>
+      </div>
+      <h1 class="display mt-8 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white reveal on" data-d="1">
+        Built by <span class="gradient-text">power-systems people</span>
+      </h1>
+      <p class="mt-8 text-xl sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed reveal on" data-d="2">
+        A father-son research team turned commercial firm — with the operators to run it.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider-glow max-w-5xl mx-auto" />
+
+  <!-- Story -->
+  <section class="py-24 sm:py-32 panel">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white reveal">From the lab to the grid</h2>
+      </div>
+      <div class="space-y-6 text-lg text-neutral-300 leading-relaxed reveal" data-d="1">
+        <p>
+          Monegrid grew out of research at the Cal Poly Pomona Smart Grid Laboratory. A father-son team — Ryan Monemi and Dr. Saeed Monemi — spent years working on a hard question: can you see a power-system fault coming before it happens? The answer became SIGMA, a physics-informed predictive-reliability engine published at IEEE SoutheastCon 2026 and validated on live lab hardware and digital-twin simulations.
+        </p>
+        <p>
+          They did not stop at the paper. Around SIGMA they built the full stack — sensing and telemetry, real-time ingest, interpretable models, a prediction service, and dashboards — proving out an approach where every claim is measured and every result traces back to grid physics.
+        </p>
+        <p>
+          In 2026, Monegrid went commercial. Today the firm runs grid-interconnection EMT studies and facility short-circuit, coordination, and arc-flash studies with the same evidence-first discipline that produced the research — engineered for PE review and grid-operator acceptance, and auditable line by line. And the team has grown, adding the commercial and client-operations people it takes to serve clients end to end.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">The people</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Engineers who publish their science, and operators who keep every engagement on schedule.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+
+        <!-- Ryan Monemi -->
+        <div class="card-glass p-8 sm:p-10 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+            <img src="assets/images/RyanMonemi.png" alt="Ryan Monemi" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover ring-1 ring-neutral-700 shrink-0 mx-auto sm:mx-0">
+            <div class="text-center sm:text-left">
+              <h3 class="text-2xl font-bold text-white mb-1">Ryan Monemi</h3>
+              <p class="text-blue-400 font-medium mb-5">Founder &amp; CEO</p>
+              <div class="space-y-4 text-neutral-300 leading-relaxed">
+                <p>
+                  Ryan is a power-systems planning analyst at 1898 &amp; Co. (Burns &amp; McDonnell) and an M.S. Electrical Engineering candidate at the University of Southern California. Previously, at SKM Systems Analysis, he ran arc-flash studies per IEEE 1584 and NFPA 70E alongside short-circuit, load-flow, and protective-device-coordination studies, modeled manufacturer fuse time-current curves, and built the Python automation that extracts TCC curves from datasheet images into library-ready models, along with validation tooling for SKM's next-generation platform — a power user of SKM PTW/PTX with working familiarity in ETAP and PSCAD.
+                </p>
+                <p>
+                  Before that he worked in electric-distribution engineering at SDG&amp;E, on propellant generation at SpaceX, and spent nearly two years in the Cal Poly Pomona Smart Grid Laboratory, tutoring college calculus along the way. As president of his IEEE Power &amp; Energy Society chapter he grew membership from 8 to more than 135, and he is lead author of the SIGMA paper (IEEE SoutheastCon 2026) and built the full Monegrid stack. He holds a B.S. in Electrical &amp; Computer Engineering from Cal Poly Pomona, completed on a three-year accelerated track, Tau Beta Pi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dr. Saeed Monemi -->
+        <div class="card-glass p-8 sm:p-10 reveal" data-d="1">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+            <img src="assets/images/SaeedMonemi.png" alt="Dr. Saeed Monemi" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover ring-1 ring-neutral-700 shrink-0 mx-auto sm:mx-0">
+            <div class="text-center sm:text-left">
+              <h3 class="text-2xl font-bold text-white mb-1">Dr. Saeed Monemi</h3>
+              <p class="text-blue-400 font-medium mb-5">Co-Founder &amp; Lead Scientist</p>
+              <div class="space-y-4 text-neutral-300 leading-relaxed">
+                <p>
+                  Dr. Monemi holds a Ph.D. in Electrical Engineering from Vanderbilt University and has been a Professor of Electrical &amp; Computer Engineering at Cal Poly Pomona for more than 20 years, where he works in the Smart Grid Laboratory. He spent over a decade at the Tennessee Valley Authority building power-system protection, and maintains working utility relationships across SCE, LADWP, PG&amp;E, and SDG&amp;E. He is co-author of the SIGMA paper and the architect of Monegrid's protection and reliability analytics framework. He is a Marquis Who's Who Honored Listee (2024).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Michael Salama -->
+        <div class="card-glass p-8 sm:p-10 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+            <img src="assets/images/MichaelSalama.png" alt="Michael Salama" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover ring-1 ring-neutral-700 shrink-0 mx-auto sm:mx-0">
+            <div class="text-center sm:text-left">
+              <h3 class="text-2xl font-bold text-white mb-1">Michael Salama</h3>
+              <p class="text-blue-400 font-medium mb-5">Vice President of Global Sales</p>
+              <div class="space-y-4 text-neutral-300 leading-relaxed">
+                <p>
+                  Michael leads commercial strategy, partnerships, and the sales pipeline across both of Monegrid's service lines. His background is as a self-directed algorithmic-trading developer: he built and statistically validated systematic futures-trading systems end to end — market-data capture, deterministic execution engines, and research harnesses using pre-registration, walk-forward validation, bootstrap confidence intervals, permutation testing, and Monte Carlo simulation. He graduated high school early to start college at Mt. San Antonio College. That evidence-first, statistically rigorous discipline now shapes how Monegrid prices, proves, and stands behind its work.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marcus Quintana -->
+        <div class="card-glass p-8 sm:p-10 reveal" data-d="1">
+          <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+            <img src="assets/images/MarcusQuintana.png" alt="Marcus Quintana" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover ring-1 ring-neutral-700 shrink-0 mx-auto sm:mx-0">
+            <div class="text-center sm:text-left">
+              <h3 class="text-2xl font-bold text-white mb-1">Marcus Quintana</h3>
+              <p class="text-blue-400 font-medium mb-5">Client Coordinator</p>
+              <div class="space-y-4 text-neutral-300 leading-relaxed">
+                <p>
+                  Marcus is the first point of contact for Monegrid clients, handling scheduling, onboarding, project logistics, and delivery follow-through. He built his customer-experience background in high-volume retail operations and is studying at Mt. San Antonio College. His job: keep every engagement moving, from the first discovery call to the final deliverable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-6 reveal">How we work</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          The habits we built doing research are the habits we bring to client work.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-sm mb-3">01</div>
+          <h3 class="text-lg font-bold text-white mb-2">Evidence first</h3>
+          <p class="text-neutral-400">We publish our science and pre-register our criteria. Claims get measured before they get made — the SIGMA results on this site are the numbers from the paper, not marketing rounding.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-sm mb-3">02</div>
+          <h3 class="text-lg font-bold text-white mb-2">Auditable always</h3>
+          <p class="text-neutral-400">Every result traces to a cause. Our studies are built to be defensible line by line — structured for licensed-engineer review — the opposite of a black box.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-blue-400 text-sm mb-3">03</div>
+          <h3 class="text-lg font-bold text-white mb-2">One accountable team</h3>
+          <p class="text-neutral-400">From the first call to the final deliverable, you work with one team that owns the outcome — grid interconnection and facility studies under one roof, with a named coordinator keeping it moving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-blue-900/30 via-neutral-900/80 to-neutral-900/80 border border-blue-600/30 p-10 md:p-16 text-center relative overflow-hidden reveal">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08),transparent_70%)]"></div>
+        <div class="relative z-10">
+          <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-4">Talk to the people who do the work</h2>
+          <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+            No handoffs to a call center. Your first conversation is with the team that runs the studies.
+          </p>
+          <a href="contact.html" class="btn-primary text-xl px-10 py-5">Book a discovery call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-14 border-t border-neutral-800/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg">
+            <span class="font-bold text-white tracking-tight">Monegrid</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Power system studies at AI speed — grid interconnection to facility compliance — plus SIGMA, our published predictive-reliability platform.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Services</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="services.html#grid" class="hover:text-white transition-colors">Interconnection &amp; EMT studies</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Short-circuit &amp; coordination</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Arc-flash studies</a></li>
+            <li><a href="services.html#segments" class="hover:text-white transition-colors">Who we serve</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Company</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="sigma.html" class="hover:text-white transition-colors">SIGMA platform</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors">Published research</a></li>
+            <li><a href="team.html" class="hover:text-white transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Get in touch</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="mailto:founder@monegrid.com" class="hover:text-white transition-colors">founder@monegrid.com</a></li>
+            <li><a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+        <div>© <span id="year"></span> Monegrid · Southern California</div>
+        <div class="mono text-xs">Faster · Whole scope · Defensible</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.site-content -->
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

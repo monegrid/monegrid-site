@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services — Grid Interconnection &amp; Facility Power Studies | Monegrid</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+    } } } };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <meta name="description" content="Grid-interconnection EMT studies in PSCAD and facility short-circuit, coordination, and arc-flash studies in SKM PTW / ETAP — AI-accelerated internally, engineered for PE review and grid-operator acceptance, auditable line by line." />
+  <meta name="theme-color" content="#06080c" />
+  <meta property="og:title" content="Services — Grid Interconnection &amp; Facility Power Studies | Monegrid" />
+  <meta property="og:description" content="Grid-interconnection EMT studies in PSCAD and facility short-circuit, coordination, and arc-flash studies in SKM PTW / ETAP — AI-accelerated internally, engineered for PE review and grid-operator acceptance, auditable line by line." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.monegrid.com/assets/images/logo.png" />
+  <link rel="icon" href="assets/images/logo.png" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 selection:bg-blue-500/20 selection:text-white antialiased">
+
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <div class="site-content">
+
+  <header id="site-nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white tracking-tight text-lg">Monegrid</span>
+      </a>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="services.html" class="text-white font-semibold">Services</a>
+        <a href="sigma.html" class="text-neutral-400 hover:text-white transition-colors">SIGMA Platform</a>
+        <a href="research.html" class="text-neutral-400 hover:text-white transition-colors">Research</a>
+        <a href="team.html" class="text-neutral-400 hover:text-white transition-colors">Team</a>
+        <a href="contact.html" class="text-neutral-400 hover:text-white transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-blue-600/25">
+          Book a discovery call
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-neutral-300 hover:text-white" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-neutral-800/50 bg-neutral-950/95 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="services.html" class="text-neutral-300 hover:text-white">Services</a>
+      <a href="sigma.html" class="text-neutral-300 hover:text-white">SIGMA Platform</a>
+      <a href="research.html" class="text-neutral-300 hover:text-white">Research</a>
+      <a href="team.html" class="text-neutral-300 hover:text-white">Team</a>
+      <a href="contact.html" class="text-neutral-300 hover:text-white">Contact</a>
+      <a href="contact.html" class="text-blue-400 font-semibold">Book a discovery call</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(96,165,250,0.08),transparent_50%)]"></div>
+    <div class="max-w-5xl mx-auto px-6 pt-40 pb-16 sm:pt-44 sm:pb-20 relative z-10 text-center">
+      <div class="reveal on">
+        <span class="eyebrow">Services · EMT / PSCAD · SKM PTW / ETAP</span>
+      </div>
+      <h1 class="display mt-8 text-5xl sm:text-6xl md:text-7xl font-extrabold text-white reveal on" data-d="1">
+        Two service lines.<br><span class="gradient-text">One firm.</span>
+      </h1>
+      <p class="mt-6 text-xl sm:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed reveal on" data-d="2">
+        From grid interconnection to facility compliance — the full electrical-study scope, delivered fast and defensible.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal on" data-d="3">
+        <a href="#grid" class="btn-primary w-full sm:w-auto text-lg">Grid line</a>
+        <a href="#facility" class="btn-ghost w-full sm:w-auto text-lg">Facility line</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-glow max-w-5xl mx-auto" />
+
+  <!-- Grid line -->
+  <section id="grid" class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="reveal">
+          <span class="eyebrow">Grid line · in front of the meter</span>
+        </div>
+        <h2 class="display mt-8 text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Interconnection &amp; EMT studies</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Every inverter-based resource — solar, wind, storage — and every large-load interconnection must pass electromagnetic-transient (EMT) studies in PSCAD before it can connect to the grid. It is the mandated, jammed step between a signed project and an energized one. We clear it.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">EMT / PSCAD</div>
+          <h3 class="text-lg font-bold text-white mb-2">EMT model build &amp; validation</h3>
+          <p class="text-neutral-400">Plant-level EMT models built and validated per FERC Order 2023, which requires validated EMT models wherever an EMT study is run.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-amber-400 text-xs mb-3 uppercase tracking-wider">NERC PRC-029-1</div>
+          <h3 class="text-lg font-bold text-white mb-2">Ride-through compliance assessment</h3>
+          <p class="text-neutral-400 mb-4">Prove your inverter-based resources ride through grid faults instead of tripping offline — the EMT-study job at the heart of the new standard.</p>
+          <div class="rounded-lg bg-amber-600/10 border border-amber-600/30 px-4 py-3 text-sm">
+            <span class="mono text-amber-300">DEADLINES</span>
+            <span class="text-neutral-300 block mt-1">Oct 1, 2026 — bulk electric system · Jan 1, 2027 — non-BES</span>
+          </div>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Scenario batteries</div>
+          <h3 class="text-lg font-bold text-white mb-2">Fault &amp; transient scenario batteries</h3>
+          <p class="text-neutral-400">Systematic sweeps of faults, disturbances, and operating conditions — the full scenario matrix your grid operator expects, run and documented.</p>
+        </div>
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Queue support</div>
+          <h3 class="text-lg font-bold text-white mb-2">Interconnection-queue study support</h3>
+          <p class="text-neutral-400">Study deliverables and analysis support for projects working through the interconnection queue — so the study step is never the reason you wait.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">OEM validation</div>
+          <h3 class="text-lg font-bold text-white mb-2">OEM PSCAD model validation</h3>
+          <p class="text-neutral-400">Validation of inverter and turbine manufacturer PSCAD models against required behavior — so one model failure does not stall an entire fleet of projects.</p>
+        </div>
+        <div class="rounded-2xl bg-gradient-to-br from-blue-900/30 to-neutral-900/80 border border-blue-600/30 p-7 reveal" data-d="2">
+          <div class="mono text-blue-300 text-xs mb-3 uppercase tracking-wider">How it holds up</div>
+          <h3 class="text-lg font-bold text-white mb-2">Auditable line by line</h3>
+          <p class="text-neutral-400">Every deliverable is auditable line by line and engineered for PE review and grid-operator acceptance — the opposite of a black box.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility line -->
+  <section id="facility" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="reveal">
+          <span class="eyebrow">Facility line · behind the meter</span>
+        </div>
+        <h2 class="display mt-8 text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Short-circuit, coordination &amp; arc-flash studies</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          OSHA and NFPA 70E require an arc-flash risk assessment, reviewed whenever the system changes and at least every 5 years, per IEEE 1584. NEC 110.24 requires available-fault-current labeling. This is recurring, mandated work for data centers, industrial plants, hospitals, and campuses — and we run it in SKM PTW / ETAP.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Short-circuit</div>
+          <h3 class="text-lg font-bold text-white mb-2">Short-circuit studies</h3>
+          <p class="text-neutral-400">Available fault current calculated across the system, verifying equipment ratings and satisfying NEC 110.24 labeling requirements.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Coordination</div>
+          <h3 class="text-lg font-bold text-white mb-2">Protective-device coordination</h3>
+          <p class="text-neutral-400">Time-current curve (TCC) analysis and device-setting coordination — so a fault trips the nearest device, not the whole facility.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-amber-400 text-xs mb-3 uppercase tracking-wider">Arc-flash · NFPA 70E</div>
+          <h3 class="text-lg font-bold text-white mb-2">Arc-flash studies</h3>
+          <p class="text-neutral-400">Incident-energy calculations, PPE categories, and equipment labeling per IEEE 1584 and NFPA 70E — the assessment OSHA expects you to have.</p>
+        </div>
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Load-flow</div>
+          <h3 class="text-lg font-bold text-white mb-2">Load-flow studies</h3>
+          <p class="text-neutral-400">Steady-state voltage, loading, and capacity analysis — know what your system can carry before you add to it.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">One-lines</div>
+          <h3 class="text-lg font-bold text-white mb-2">One-line diagram development</h3>
+          <p class="text-neutral-400">Accurate, current one-line diagrams built or brought up to date — the foundation every other facility study stands on.</p>
+        </div>
+        <div class="rounded-2xl bg-gradient-to-br from-blue-900/30 to-neutral-900/80 border border-blue-600/30 p-7 reveal" data-d="2">
+          <div class="mono text-blue-300 text-xs mb-3 uppercase tracking-wider">For EPC / MEP firms</div>
+          <h3 class="text-lg font-bold text-white mb-2">White-label overflow capacity</h3>
+          <p class="text-neutral-400">Your backlog, our engine. We deliver study capacity under your name so your firm never has to turn down work or blow a deadline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we deliver -->
+  <section id="process" class="py-24 sm:py-32 panel">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">How we deliver</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          A fixed, four-step process. AI-accelerated internally, engineer-reviewed always — weeks, not months.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-3xl font-medium mb-4">01</div>
+          <h3 class="text-lg font-bold text-white mb-2">Discovery call</h3>
+          <p class="text-neutral-400">15 minutes. We scope the study, understand the system, and pin down your deadline.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-3xl font-medium mb-4">02</div>
+          <h3 class="text-lg font-bold text-white mb-2">Scoped proposal</h3>
+          <p class="text-neutral-400">Fixed deliverables and a fixed schedule. You know exactly what you get and when you get it.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-blue-400 text-3xl font-medium mb-4">03</div>
+          <h3 class="text-lg font-bold text-white mb-2">Modeling &amp; runs</h3>
+          <p class="text-neutral-400">Model build, scenario batteries, and analysis — AI-accelerated internally, reviewed by an engineer at every step.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="3">
+          <div class="mono text-blue-400 text-3xl font-medium mb-4">04</div>
+          <h3 class="text-lg font-bold text-white mb-2">Deliverable &amp; defense</h3>
+          <p class="text-neutral-400">A report that traces every result to a cause — and we stand behind it through reviewer questions until it is accepted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we serve -->
+  <section id="segments" class="py-24 sm:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">Who we serve</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          Six kinds of clients, one common problem: a mandated study standing between them and their deadline.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-amber-400 text-xs mb-3 uppercase tracking-wider">Grid line</div>
+          <h3 class="text-lg font-bold text-white mb-2">IBR fleet operators</h3>
+          <p class="text-neutral-400">The PRC-029-1 clock is running — Oct 1, 2026 for the bulk electric system — and proving ride-through compliance is an EMT-study job.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Both lines</div>
+          <h3 class="text-lg font-bold text-white mb-2">Data centers &amp; mission-critical facilities</h3>
+          <p class="text-neutral-400">You need both lines — EMT studies to connect, and arc-flash and coordination studies for your own gear once you do.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Facility line</div>
+          <h3 class="text-lg font-bold text-white mb-2">EPC &amp; MEP design firms</h3>
+          <p class="text-neutral-400">Your study backlog exceeds your bench — we are white-label overflow capacity that delivers under your name.</p>
+        </div>
+        <div class="card-glass p-7 reveal">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Grid line</div>
+          <h3 class="text-lg font-bold text-white mb-2">Interconnection-queue developers</h3>
+          <p class="text-neutral-400">With median queue waits of 5+ years, you cannot afford a study surprise — know your answer early, before it costs you your position.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="1">
+          <div class="mono text-blue-400 text-xs mb-3 uppercase tracking-wider">Facility line</div>
+          <h3 class="text-lg font-bold text-white mb-2">Industrial &amp; commercial facility owners</h3>
+          <p class="text-neutral-400">NFPA 70E compliance is a recurring cycle — reviewed when the system changes and at least every 5 years — not a one-time checkbox.</p>
+        </div>
+        <div class="card-glass p-7 reveal" data-d="2">
+          <div class="mono text-amber-400 text-xs mb-3 uppercase tracking-wider">Grid line</div>
+          <h3 class="text-lg font-bold text-white mb-2">Inverter &amp; turbine OEMs</h3>
+          <p class="text-neutral-400">PSCAD model-validation deadlines put your model on the critical path of every customer project — we validate it before it becomes the bottleneck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance drivers -->
+  <section class="py-24 sm:py-32 panel">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="display text-4xl sm:text-6xl font-extrabold text-white mb-6 reveal">The compliance drivers</h2>
+        <p class="text-xl text-neutral-300 max-w-3xl mx-auto reveal" data-d="1">
+          None of this work is optional. Four regulatory drivers set the demand — and the deadlines.
+        </p>
+      </div>
+      <div class="card-quiet overflow-hidden reveal">
+        <div class="divide-y divide-neutral-800">
+          <div class="grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-6 px-6 sm:px-8 py-5 items-baseline">
+            <div class="mono text-amber-300 text-sm">NERC PRC-029-1</div>
+            <p class="text-neutral-300 text-sm">Inverter-based resources must prove fault ride-through — by Oct 1, 2026 (bulk electric system) and Jan 1, 2027 (non-BES).</p>
+          </div>
+          <div class="grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-6 px-6 sm:px-8 py-5 items-baseline">
+            <div class="mono text-blue-300 text-sm">FERC Order 2023</div>
+            <p class="text-neutral-300 text-sm">Validated EMT models are required wherever an EMT study is run — no model, no study, no interconnection.</p>
+          </div>
+          <div class="grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-6 px-6 sm:px-8 py-5 items-baseline">
+            <div class="mono text-blue-300 text-sm">NFPA 70E + IEEE 1584</div>
+            <p class="text-neutral-300 text-sm">Arc-flash risk assessments must be reviewed when the system changes and at least every 5 years — recurring by design.</p>
+          </div>
+          <div class="grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-6 px-6 sm:px-8 py-5 items-baseline">
+            <div class="mono text-blue-300 text-sm">NEC 110.24</div>
+            <p class="text-neutral-300 text-sm">Equipment must be labeled with available fault current — which means a current short-circuit study behind every label.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-blue-900/30 via-neutral-900/80 to-neutral-900/80 border border-blue-600/30 p-10 md:p-16 text-center relative overflow-hidden reveal">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08),transparent_70%)]"></div>
+        <div class="relative z-10">
+          <h2 class="display text-4xl sm:text-5xl font-extrabold text-white mb-4">Scope your study this week</h2>
+          <p class="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto">
+            A 15-minute discovery call is all it takes to get a scoped proposal with fixed deliverables and a fixed schedule.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="contact.html" class="btn-primary w-full sm:w-auto text-lg">Book a discovery call</a>
+            <a href="mailto:founder@monegrid.com" class="btn-ghost w-full sm:w-auto text-lg">founder@monegrid.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-14 border-t border-neutral-800/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <img src="assets/images/logo.png" alt="Monegrid logo" class="h-8 w-8 rounded-lg">
+            <span class="font-bold text-white tracking-tight">Monegrid</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Power system studies at AI speed — grid interconnection to facility compliance — plus SIGMA, our published predictive-reliability platform.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Services</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="services.html#grid" class="hover:text-white transition-colors">Interconnection &amp; EMT studies</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Short-circuit &amp; coordination</a></li>
+            <li><a href="services.html#facility" class="hover:text-white transition-colors">Arc-flash studies</a></li>
+            <li><a href="services.html#segments" class="hover:text-white transition-colors">Who we serve</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Company</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="sigma.html" class="hover:text-white transition-colors">SIGMA platform</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors">Published research</a></li>
+            <li><a href="team.html" class="hover:text-white transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">Get in touch</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="mailto:founder@monegrid.com" class="hover:text-white transition-colors">founder@monegrid.com</a></li>
+            <li><a href="https://instagram.com/monegrid" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+        <div>© <span id="year"></span> Monegrid · Southern California</div>
+        <div class="mono text-xs">Faster · Whole scope · Defensible</div>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.site-content -->
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
