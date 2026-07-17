@@ -91,8 +91,68 @@
 
   <hr class="divider-glow max-w-5xl mx-auto" />
 
-  <!-- Who we are -->
+  <!-- Scope a study -->
   <section class="py-24 sm:py-32">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="term-window reveal">
+        <div class="term-head">
+          <span class="term-dot" style="background:#f87171"></span>
+          <span class="term-dot" style="background:#fbbf24"></span>
+          <span class="term-dot" style="background:#34d399"></span>
+          <span class="mono text-xs text-neutral-500 ml-3">monegrid ~ % scope a study</span>
+        </div>
+        <div class="p-7 sm:p-10">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="cfg-study" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Study</label>
+              <div class="cfg-select-wrap">
+                <select id="cfg-study" class="cfg-select">
+                  <option>Arc-flash study</option>
+                  <option>Short-circuit &amp; coordination study</option>
+                  <option>Grid-interconnection study</option>
+                  <option>Ride-through compliance assessment</option>
+                  <option>SIGMA monitoring pilot</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="cfg-fac" class="mono text-xs uppercase tracking-widest text-neutral-500 block mb-3">Facility</label>
+              <div class="cfg-select-wrap">
+                <select id="cfg-fac" class="cfg-select">
+                  <option>Data center</option>
+                  <option>Solar, wind or storage site</option>
+                  <option>Industrial plant</option>
+                  <option>Hospital or campus</option>
+                  <option>Commercial building</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <p id="cfg-del" class="mt-8 text-neutral-300 leading-relaxed">Incident-energy calculations, PPE categories, and equipment labels — PE-stamped and ready for the wall.</p>
+
+          <div class="mt-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
+            <div>
+              <div class="mono text-xs uppercase tracking-widest text-neutral-500 mb-2">Delivered</div>
+              <div class="cfg-big gradient-text text-4xl sm:text-5xl">in weeks</div>
+            </div>
+            <div class="sm:pb-1">
+              <div class="mono text-xs uppercase tracking-widest text-neutral-500 mb-2">Availability</div>
+              <span class="cfg-chip">NOW</span>
+            </div>
+            <a id="cfg-go" href="mailto:founder@monegrid.com?subject=Arc-flash%20study%20%E2%80%94%20Data%20center" class="btn-primary sm:ml-auto">Scope this study <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+      <p class="mono text-xs text-neutral-500 text-center mt-10 tracking-widest uppercase reveal" data-d="1">
+        Built by engineers from<br>
+        <span class="text-neutral-300 tracking-normal normal-case text-sm">TVA &nbsp;·&nbsp; SDG&amp;E &nbsp;·&nbsp; SKM Systems Analysis &nbsp;·&nbsp; Cal Poly Pomona</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Who we are -->
+  <section class="pb-24 sm:pb-32">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-xl sm:text-2xl text-neutral-300 leading-relaxed reveal">
         Monegrid is a power-systems engineering firm built to move at startup speed. The studies gating the grid&rsquo;s buildout have been run the same way for decades — we re-engineered the process from first principles, with our own AI tooling and licensed professional engineers, to deliver in weeks what the industry quotes in months. Underneath it all is SIGMA, our published predictive-reliability platform.
@@ -229,6 +289,30 @@
 
   </div><!-- /.site-content -->
 
+  <script>
+    (function () {
+      var DELIVERABLES = {
+        'Arc-flash study': 'Incident-energy calculations, PPE categories, and equipment labels — PE-stamped and ready for the wall.',
+        'Short-circuit & coordination study': 'Fault-current results, protective-device settings, and time-current curves — PE-stamped and auditable line by line.',
+        'Grid-interconnection study': 'A validated plant model and transient study, PE-stamped and built for grid-operator acceptance.',
+        'Ride-through compliance assessment': 'Proof your fleet rides through grid faults — scoped against the October 2026 federal deadline.',
+        'SIGMA monitoring pilot': 'Our published fault-prediction engine running on your live data, with an operator dashboard.'
+      };
+      var study = document.getElementById('cfg-study');
+      var fac = document.getElementById('cfg-fac');
+      var del = document.getElementById('cfg-del');
+      var go = document.getElementById('cfg-go');
+      if (!study || !fac || !del || !go) return;
+      function update() {
+        del.textContent = DELIVERABLES[study.value] || '';
+        go.setAttribute('href', 'mailto:founder@monegrid.com?subject=' +
+          encodeURIComponent(study.value + ' — ' + fac.value));
+      }
+      study.addEventListener('change', update);
+      fac.addEventListener('change', update);
+      update();
+    })();
+  </script>
   <script src="assets/site.js" defer></script>
 </body>
 </html>

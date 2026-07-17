@@ -177,6 +177,77 @@ mjx-container[display="true"] { margin: 0 !important; overflow-x: auto; overflow
 /* hero parallax layer */
 .hero-parallax { will-change: transform; }
 
+/* ---------- scope-a-study configurator (home) ---------- */
+.term-window {
+  border-radius: 1rem;
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  background: rgba(8, 11, 17, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.10), 0 24px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.term-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.8rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+}
+.term-dot { width: 10px; height: 10px; border-radius: 9999px; display: inline-block; }
+.cfg-select-wrap { position: relative; }
+.cfg-select-wrap::after {
+  content: "▾";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #60a5fa;
+  pointer-events: none;
+  font-size: 0.8rem;
+}
+.cfg-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  color-scheme: dark;
+  background: rgba(2, 6, 12, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.65rem;
+  color: #e5e7eb;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 1rem;
+  padding: 0.9rem 2.6rem 0.9rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cfg-select:hover, .cfg-select:focus {
+  border-color: rgba(96, 165, 250, 0.5);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+.cfg-big {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.cfg-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  color: #6ee7b7;
+  font-size: 0.95rem;
+}
+.cfg-chip::before {
+  content: "";
+  width: 9px; height: 9px;
+  background: #34d399;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.9);
+  display: inline-block;
+}
+
 /* ---------- gateway cards (home) ---------- */
 .gate-card {
   position: relative;
